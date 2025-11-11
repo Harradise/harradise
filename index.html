@@ -2,37 +2,174 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harradise Harrachov</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harradise Harrachov – apartmán u Mumlavského vodopádu</title>
+  <meta name="description" content="Plně vybavený apartmán (nejen) pro rodiny v Harrachově pod Mumlavským vodopádem. Klidná poloha, turistika, zahrada s ohništěm.">
+  <!-- Open Graph pro sdílení -->
+  <meta property="og:title" content="Harradise Harrachov">
+  <meta property="og:description" content="Plně vybavený apartmán (nejen) pro rodiny v Harrachově pod Mumlavským vodopádem.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.harradise.cz/">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#1f2937;     /* tmavě šedá */
+      --muted:#6b7280;    /* šedá na sekundární text */
+      --brand:#d10000;    /* červená pro CTA */
+      --brand-soft:#ffecec;
+      --card:#f8fafc;     /* světle šedé pozadí karet */
+      --ring:rgba(0,0,0,0.08);
+      --radius:18px;
+      --shadow:0 6px 24px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      line-height:1.55;
+    }
+    a{color:var(--brand); text-underline-offset:3px}
+    header, main, footer{padding:24px}
+    .container{max-width:960px; margin:0 auto}
+
+    /* HERO */
+    .notice{
+      border:2px solid var(--brand);
+      background:var(--brand-soft);
+      padding:16px;
+      border-radius:var(--radius);
+      text-align:center;
+      margin:18px auto 28px;
+      box-shadow:var(--shadow);
+    }
+    .notice a{font-weight:700}
+    .logo{
+      width:150px; height:auto; display:block; margin:0 auto 16px;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,.08));
+    }
+    .title{font-size:clamp(28px,4vw,42px); text-align:center; margin:8px 0}
+    .subtitle{color:var(--muted); text-align:center; margin-top:6px; margin-bottom:22px}
+    .lead{font-size:18px; text-align:center; margin:0 auto 18px; max-width:42ch}
+    .cta{
+      display:inline-block; background:var(--brand); color:#fff; text-decoration:none; font-weight:700;
+      padding:12px 18px; border-radius:999px; box-shadow:var(--shadow);
+      transition:transform .06s ease-in-out;
+    }
+    .cta:hover{transform:translateY(-1px)}
+    .stack-center{display:flex; flex-direction:column; align-items:center}
+
+    /* FEATURES */
+    .card{
+      background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);
+    }
+    ul.features{
+      list-style: disc; padding-left:22px; margin:0;
+      font-size:18px; line-height:1.6;
+    }
+    .grid{
+      display:grid; gap:18px;
+      grid-template-columns:1fr;
+    }
+    @media (min-width:720px){
+      .grid{grid-template-columns:1fr 1fr}
+    }
+
+    /* GALLERY */
+    .gallery{
+      display:grid; gap:14px; margin-top:8px;
+      grid-template-columns:1fr 1fr;
+    }
+    @media (min-width:720px){
+      .gallery{grid-template-columns:repeat(3,1fr)}
+    }
+    .thumb{
+      aspect-ratio: 4 / 3; width:100%; border-radius:14px; object-fit:cover; background:#e5e7eb;
+      box-shadow:var(--shadow);
+    }
+    .placeholder{
+      display:flex; align-items:center; justify-content:center; color:#9ca3af; font-size:14px; background:#eef2f7;
+      border:1px dashed #cbd5e1;
+    }
+
+    /* SECTIONS */
+    section{margin:36px 0}
+    h3{margin:0 0 12px; font-size:22px}
+    .center{text-align:center}
+
+    footer{
+      margin-top:40px; border-top:1px solid #e5e7eb; padding-top:24px; color:var(--muted);
+      font-size:14px; text-align:center;
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; text-align: center; background-color: white; color: #333; padding: 40px;">
+<body>
+  <header>
+    <div class="container">
+      <!-- zvýrazněná informace nahoře -->
+      <div class="notice">
+        <strong>Na webu se pracuje.</strong><br>
+        Svůj pobyt si zatím můžete rezervovat
+        <a href="https://www.booking.com/Share-Pz2DesE" target="_blank" rel="noopener">zde</a>,
+        nebo nám <a href="mailto:hajek.stiburkova@gmail.com">napište</a>.
+        <br><br>
+        Mrkněte také na náš
+        <a href="https://www.instagram.com/harradise__?igsh=YjZlN2Exb2hsOXpp" target="_blank" rel="noopener">Instagram</a>.
+      </div>
 
-  <!-- Zvýrazněný informační blok -->
-  <div style="border: 2px solid #ff4d4d; background-color: #ffecec; padding: 15px; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; font-size: 18px;">
-    <strong>Na webu se pracuje.</strong><br>
-    Svůj pobyt si zatím můžete rezervovat <a href="https://www.booking.com/Share-Pz2DesE" target="_blank" style="color: #d10000; font-weight: bold;">zde</a>,<br>
-    nebo nám <a href="mailto:hajek.stiburkova@gmail.com" style="color: #d10000; font-weight: bold;">napište</a>.<br><br>
-    Mrkněte také na náš <a href="https://www.instagram.com/harradise__?igsh=YjZlN2Exb2hsOXpp" target="_blank" style="color: #d10000; font-weight: bold;">Instagram</a>.
-  </div>
+      <!-- logo (změň název, pokud je jiný než Harradise.png) -->
+      <img src="Harradise.png" alt="Harradise logo" class="logo">
 
-  <!-- Logo -->
-<img src="Harradise.png" alt="Harradise logo" style="width: 150px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;">
+      <div class="stack-center">
+        <h1 class="title">Harradise Harrachov</h1>
+        <p class="lead">Plně vybavený apartmán (nejen) pro rodiny v Harrachově pod Mumlavským vodopádem.</p>
+        <a class="cta" href="https://www.booking.com/Share-Pz2DesE" target="_blank" rel="noopener">Rezervovat na Booking.com</a>
+      </div>
+    </div>
+  </header>
 
-  <!-- Nadpisy -->
-  <h1>Harradise Harrachov</h1>
-  <p style="font-size: 18px; margin-bottom: 30px;">
-    Plně vybavený apartmán (nejen) pro rodiny v Harrachově pod Mumlavským vodopádem.
-  </p>
+  <main class="container">
+    <!-- Výhody -->
+    <section class="card">
+      <h3>Proč Harradise</h3>
+      <ul class="features">
+        <li>Ideální výchozí bod pro turistiku</li>
+        <li>Velmi klidná poloha nedaleko centra</li>
+        <li>Vybavení pro děti</li>
+        <li>Wellness a sportovní centrum přímo naproti vchodu</li>
+        <li>Zahrada s ohništěm u domu</li>
+        <li>Velkolepá příroda všude kolem</li>
+      </ul>
+    </section>
 
-  <!-- Výhody -->
-  <ul style="text-align: left; display: inline-block; margin: 0 auto; font-size: 18px; line-height: 1.6; padding-left: 20px;">
-    <li>Ideální výchozí bod na skialpy a běžky, nástup do stopy hned za domem</li>
-    <li>Kousek do lyžařského areálu v centru města i na Rýžovišti, 300 m od zastávky skibusu</li>
-    <li>Velmi klidná poloha přímo pod Mumlavskými vodopády</li>
-    <li>Plně vybavený apartmán, vč. kompletního vybavení pro děti</li>
-    <li>Zahrada za domem na stavění sněhuláků a hraní si ve sněhu</li>
-    <li>Velkolepá příroda všude kolem</li>
-  </ul>
+    <!-- Galerie – zatím zástupné náhledy; vyměň src za tvé fotky -->
+    <section>
+      <h3 class="center">Fotky (brzy doplníme)</h3>
+      <div class="gallery">
+        <!-- Až budeš mít fotky, nahraj je do /images a změň src, např. src="images/apartman-1.jpg" -->
+        <img class="thumb placeholder" alt="foto apartmánu – brzy" src="" onerror="this.outerHTML='<div class=&quot;thumb placeholder&quot;>Nahrajte fotku 1</div>'">
+        <img class="thumb placeholder" alt="foto apartmánu – brzy" src="" onerror="this.outerHTML='<div class=&quot;thumb placeholder&quot;>Nahrajte fotku 2</div>'">
+        <img class="thumb placeholder" alt="foto apartmánu – brzy" src="" onerror="this.outerHTML='<div class=&quot;thumb placeholder&quot;>Nahrajte fotku 3</div>'">
+      </div>
+    </section>
 
+    <!-- Informace o apartmánu – můžeš postupně rozšířit -->
+    <section class="card">
+      <h3>O apartmánu</h3>
+      <p>
+        Klidná poloha v pěším dosahu centra, přímo u stezek k Mumlavskému vodopádu.
+        Soukromé parkování, vybavení pro děti, zahrada s ohništěm. Wellness a sportovní centrum naproti vchodu.
+      </p>
+      <p>Dotazy? <a href="mailto:hajek.stiburkova@gmail.com">hajek.stiburkova@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Harradise Harrachov • <a href="mailto:hajek.stiburkova@gmail.com">Kontakt</a>
+  </footer>
+
+  <script>
+    // Rok v patičce
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
