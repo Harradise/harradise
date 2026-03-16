@@ -3,35 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Příměstský tábor | Harradise</title>
-  <meta name="description" content="Malý sportovně laděný příměstský tábor pro děti 6 - 10 let v pohodové atmosféře." />
+  <title>Týden v pohybu | Sportovní příměstský tábor</title>
+  <meta name="description" content="Malý sportovně laděný příměstský tábor pro děti 6–10 let v pohodové atmosféře." />
   <style>
     :root {
-      --bg: #f6f2ea;
-      --paper: #fffdf9;
+      --bg: #f6f3ee;
+      --paper: #fcfbf8;
+      --paper-2: #fffdfa;
+      --ink: #244f67;
+      --ink-dark: #18384a;
       --text: #243126;
-      --muted: #5d6a60;
-      --line: #ddd4c5;
-      --accent: #5f7f62;
-      --accent-dark: #3f5f43;
-      --sand: #e9dcc7;
-      --shadow: 0 12px 36px rgba(36, 49, 38, 0.08);
-      --radius: 22px;
-      --max: 1160px;
+      --muted: #66727a;
+      --orange: #f39a34;
+      --orange-dark: #e48017;
+      --orange-soft: #fff0dd;
+      --mint: #dff1ee;
+      --mint-2: #cde7e2;
+      --line: #e6ddd1;
+      --shadow: 0 18px 40px rgba(47, 53, 60, 0.10);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(223, 241, 238, 0.7), transparent 22%),
+        radial-gradient(circle at top right, rgba(243, 154, 52, 0.10), transparent 18%),
+        var(--bg);
+      line-height: 1.65;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.20;
+      background-image:
+        linear-gradient(rgba(36,79,103,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36,79,103,0.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 70%);
+      z-index: -1;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    img { display: block; max-width: 100%; }
 
     .container {
       width: min(calc(100% - 32px), var(--max));
@@ -41,131 +65,192 @@
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
       backdrop-filter: blur(14px);
-      background: rgba(246, 242, 234, 0.86);
-      border-bottom: 1px solid rgba(221, 212, 197, 0.7);
+      background: rgba(252, 251, 248, 0.88);
+      border-bottom: 1px solid rgba(230, 221, 209, 0.9);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       padding: 14px 0;
     }
 
     .brand {
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--ink), #3a758f);
+      color: white;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 24px rgba(36,79,103,0.18);
+      font-size: 1rem;
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
       flex-wrap: wrap;
+      gap: 18px;
       align-items: center;
       font-size: 0.95rem;
       color: var(--muted);
     }
+
+    .nav-links a:hover { color: var(--ink); }
 
     .button,
     .button-outline {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       padding: 14px 22px;
       border-radius: 999px;
-      font-weight: 600;
+      font-weight: 800;
       transition: 0.2s ease;
       border: 1px solid transparent;
       cursor: pointer;
     }
 
     .button {
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
       color: white;
-      box-shadow: var(--shadow);
+      box-shadow: 0 14px 28px rgba(243,154,52,0.26);
     }
 
-    .button:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .button:hover { transform: translateY(-1px); }
 
     .button-outline {
+      background: rgba(255,255,255,0.75);
       border-color: var(--line);
-      background: rgba(255,255,255,0.55);
+      color: var(--ink);
     }
 
-    .button-outline:hover { border-color: var(--accent); }
+    .button-outline:hover { border-color: var(--orange); }
 
     .hero {
-      padding: 56px 0 28px;
+      padding: 46px 0 24px;
+      position: relative;
+      overflow: hidden;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.02fr 0.98fr;
       gap: 28px;
       align-items: stretch;
     }
 
-    .hero-copy,
-    .hero-card,
+    .panel,
     .card,
     .note,
-    .faq-item,
     .program-box,
-    .cta-box {
-      background: var(--paper);
+    .faq-item,
+    .cta-box,
+    .about-intro,
+    .person-card,
+    .about-joint {
+      background: rgba(252, 251, 248, 0.92);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .paper-texture::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image:
+        radial-gradient(rgba(0,0,0,0.35) 0.6px, transparent 0.8px);
+      background-size: 7px 7px;
+      mix-blend-mode: multiply;
     }
 
     .hero-copy {
       padding: 42px;
-      position: relative;
-      overflow: hidden;
     }
 
     .hero-copy::after {
       content: "";
       position: absolute;
-      width: 260px;
-      height: 260px;
+      width: 280px;
+      height: 280px;
       right: -90px;
-      top: -90px;
-      background: radial-gradient(circle, rgba(95,127,98,0.15) 0%, rgba(95,127,98,0) 70%);
+      top: -110px;
+      background: radial-gradient(circle, rgba(223,241,238,1) 0%, rgba(223,241,238,0) 68%);
       pointer-events: none;
     }
 
     .eyebrow {
-      display: inline-block;
-      padding: 6px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
       border-radius: 999px;
-      background: var(--sand);
+      background: var(--orange-soft);
+      color: var(--orange-dark);
       font-size: 0.84rem;
-      font-weight: 600;
+      font-weight: 800;
       margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow::before {
+      content: "✦";
+      color: var(--orange);
+      font-size: 0.82rem;
     }
 
     h1, h2, h3 {
-      line-height: 1.1;
+      line-height: 1.06;
       margin: 0 0 14px;
-      font-family: Georgia, "Times New Roman", serif;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
     }
 
-    h1 { font-size: clamp(2.4rem, 5vw, 4.8rem); max-width: 11ch; }
-    h2 { font-size: clamp(1.8rem, 3vw, 3rem); }
-    h3 { font-size: 1.2rem; }
+    h1 {
+      font-size: clamp(2.6rem, 5.8vw, 5rem);
+      font-weight: 950;
+      color: var(--ink);
+      max-width: 11ch;
+    }
+
+    h2 {
+      font-size: clamp(1.85rem, 3vw, 3rem);
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    h3 {
+      font-size: 1.18rem;
+      font-weight: 850;
+      color: var(--ink-dark);
+    }
 
     .lead {
       font-size: 1.08rem;
       color: var(--muted);
-      max-width: 56ch;
+      max-width: 58ch;
       margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-actions {
@@ -173,6 +258,8 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 26px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-points {
@@ -180,19 +267,22 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       margin-top: 28px;
+      position: relative;
+      z-index: 1;
     }
 
     .mini {
-      padding: 14px;
+      padding: 15px;
       border-radius: 18px;
-      background: rgba(95,127,98,0.06);
-      border: 1px solid rgba(95,127,98,0.14);
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(36,79,103,0.08);
     }
 
     .mini strong {
       display: block;
       margin-bottom: 6px;
-      font-size: 0.95rem;
+      font-size: 0.96rem;
+      color: var(--ink-dark);
     }
 
     .mini span {
@@ -208,20 +298,39 @@
     }
 
     .hero-visual {
-      min-height: 420px;
-      border-radius: calc(var(--radius) - 6px);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,255,255,0)),
-        url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80') center/cover;
+      min-height: 470px;
+      border-radius: 24px;
       position: relative;
       overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(36,49,38,0.20)),
+        url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1400&q=80') center/cover;
     }
 
-    .hero-visual::after {
-      content: "";
+    .hero-tag {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(36,49,38,0.05), rgba(36,49,38,0.35));
+      left: 18px;
+      bottom: 18px;
+      background: rgba(255,255,255,0.93);
+      border-radius: 18px;
+      padding: 12px 14px;
+      max-width: 260px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      background: var(--orange);
+      color: white;
+      font-weight: 900;
+      border-radius: 999px;
+      padding: 10px 14px;
+      box-shadow: 0 10px 24px rgba(243,154,52,0.25);
+      transform: rotate(-4deg);
     }
 
     .hero-caption {
@@ -230,10 +339,99 @@
       gap: 12px;
     }
 
-    .hero-caption .mini { background: #faf6ee; }
+    .doodle,
+    .doodle-2,
+    .doodle-3,
+    .doodle-4,
+    .doodle-5,
+    .doodle-6 {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .doodle {
+      top: 30px;
+      right: 40px;
+      width: 42px;
+      height: 42px;
+      border: 4px solid var(--orange);
+      border-radius: 50%;
+    }
+
+    .doodle::before,
+    .doodle::after {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      border: 4px dashed transparent;
+      border-top-color: var(--orange);
+      border-left-color: var(--orange);
+      transform: rotate(18deg);
+    }
+
+    .doodle-2 {
+      left: 32px;
+      top: 160px;
+      width: 56px;
+      height: 56px;
+      border-left: 5px solid #74b7bf;
+      border-top: 5px solid #74b7bf;
+      transform: skew(-12deg);
+      opacity: 0.8;
+    }
+
+    .doodle-3 {
+      left: 26px;
+      bottom: 88px;
+      color: #7fbcc3;
+      font-size: 56px;
+      line-height: 1;
+    }
+
+    .doodle-4 {
+      right: 54px;
+      top: 248px;
+      width: 90px;
+      height: 40px;
+      border-top: 5px solid var(--orange);
+      border-right: 5px solid var(--orange);
+      border-top-right-radius: 60px;
+      transform: rotate(10deg);
+    }
+
+    .doodle-4::after {
+      content: "";
+      position: absolute;
+      right: -7px;
+      top: -10px;
+      width: 16px;
+      height: 16px;
+      border-top: 5px solid var(--orange);
+      border-right: 5px solid var(--orange);
+      transform: rotate(45deg);
+    }
+
+    .doodle-5 {
+      left: 110px;
+      top: 290px;
+      color: var(--orange);
+      font-size: 34px;
+      transform: rotate(-12deg);
+    }
+
+    .doodle-6 {
+      right: 90px;
+      bottom: 98px;
+      color: #7fbcc3;
+      font-size: 52px;
+      transform: rotate(8deg);
+    }
 
     section {
       padding: 28px 0;
+      position: relative;
     }
 
     .section-head {
@@ -246,7 +444,7 @@
 
     .section-head p {
       color: var(--muted);
-      max-width: 52ch;
+      max-width: 55ch;
       margin: 0;
     }
 
@@ -263,26 +461,31 @@
 
     .card {
       padding: 24px;
+      background: linear-gradient(180deg, rgba(255,253,250,0.97), rgba(252,251,248,0.94));
     }
 
     .card p,
     .note p,
     .faq-item p,
     .program-box p,
-    .cta-box p {
+    .cta-box p,
+    .about-intro p,
+    .person-card p,
+    .about-joint p {
       margin: 0;
       color: var(--muted);
     }
 
     .icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: var(--sand);
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--mint), var(--orange-soft));
       display: grid;
       place-items: center;
       margin-bottom: 14px;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
+      box-shadow: inset 0 0 0 1px rgba(36,79,103,0.06);
     }
 
     .note {
@@ -290,7 +493,7 @@
     }
 
     .program-box {
-      padding: 24px;
+      padding: 26px;
     }
 
     .program-list {
@@ -301,7 +504,7 @@
 
     .program-item {
       display: grid;
-      grid-template-columns: 88px 1fr;
+      grid-template-columns: 112px 1fr;
       gap: 14px;
       align-items: start;
       padding-bottom: 14px;
@@ -314,8 +517,77 @@
     }
 
     .time {
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 999px;
+      padding: 0 12px;
+      background: var(--orange-soft);
+      color: var(--orange-dark);
+      font-weight: 900;
       letter-spacing: 0.02em;
+      font-size: 0.92rem;
+    }
+
+    .about-wrap {
+      display: grid;
+      gap: 18px;
+    }
+
+    .about-intro,
+    .about-joint {
+      padding: 26px;
+    }
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .person-card {
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,253,250,0.98), rgba(248,250,248,0.95));
+    }
+
+    .person-photo {
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, var(--mint), var(--orange-soft));
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.98rem;
+      overflow: hidden;
+    }
+
+    .person-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .person-body {
+      padding: 22px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 16px;
+    }
+
+    .tag {
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid var(--line);
+      font-size: 0.84rem;
+      color: var(--muted);
+      font-weight: 700;
     }
 
     .faq {
@@ -335,6 +607,9 @@
       grid-template-columns: 1.2fr 0.8fr;
       gap: 24px;
       align-items: center;
+      background:
+        radial-gradient(circle at top right, rgba(223,241,238,0.9), transparent 28%),
+        linear-gradient(180deg, rgba(255,253,250,0.98), rgba(252,251,248,0.94));
     }
 
     .checklist {
@@ -346,13 +621,13 @@
 
     .checklist div::before {
       content: "•";
-      color: var(--accent);
-      font-weight: 700;
+      color: var(--orange);
+      font-weight: 900;
       margin-right: 10px;
     }
 
     footer {
-      padding: 28px 0 46px;
+      padding: 30px 0 48px;
       color: var(--muted);
       font-size: 0.95rem;
     }
@@ -367,14 +642,21 @@
     }
 
     .muted { color: var(--muted); }
-    .strong { font-weight: 700; color: var(--text); }
+    .strong { font-weight: 800; color: var(--text); }
+
+    .tiny-doodle {
+      display: inline-block;
+      color: var(--orange);
+      margin-left: 6px;
+    }
 
     @media (max-width: 980px) {
       .hero-grid,
       .cta-box,
       .grid-4,
       .grid-3,
-      .grid-2 {
+      .grid-2,
+      .people-grid {
         grid-template-columns: 1fr;
       }
 
@@ -387,28 +669,37 @@
       .hero-copy { padding: 30px; }
       .nav { align-items: start; }
       .nav-links { justify-content: flex-end; }
+      .doodle-4, .doodle-5, .doodle-6 { display: none; }
     }
 
     @media (max-width: 640px) {
       .nav { flex-direction: column; align-items: stretch; }
       .nav-links { justify-content: space-between; }
       .hero { padding-top: 28px; }
-      .hero-copy, .card, .note, .program-box, .faq-item, .cta-box { padding: 22px; }
-      .program-item { grid-template-columns: 1fr; gap: 6px; }
-      .hero-visual { min-height: 320px; }
+      .hero-copy, .card, .note, .program-box, .faq-item, .cta-box, .about-intro, .about-joint, .person-body {
+        padding: 22px;
+      }
+      .program-item { grid-template-columns: 1fr; gap: 8px; }
+      .hero-visual { min-height: 330px; }
+      .hero-badge, .hero-tag { transform: none; }
+      .doodle, .doodle-2, .doodle-3 { display: none; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="container nav">
-      <a href="#top" class="brand">Příměstský tábor</a>
+      <a href="#top" class="brand">
+        <span class="brand-badge">⚡</span>
+        <span>Týden v pohybu</span>
+      </a>
       <nav class="nav-links">
         <a href="#o-tabore">O táboře</a>
         <a href="#program">Program</a>
+        <a href="#o-nas">Kdo tábor povede</a>
         <a href="#info">Informace</a>
-        <a href="#faq">Časté dotazy</a>
-        <a href="#prihlaska" class="button">PŘIHLÁSIT SE</a>
+        <a href="#faq">FAQ</a>
+        <a href="#prihlaska" class="button">Chci přihlášku</a>
       </nav>
     </div>
   </header>
@@ -416,18 +707,24 @@
   <main id="top">
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">malá skupina • pohyb • respekt • rodinná atmosféra</div>
-          <h1>Týden v pohybu a v pohodě, na který děti nezapomenou. </h1>
+        <div class="panel paper-texture hero-copy">
+          <div class="doodle"></div>
+          <div class="doodle-2"></div>
+          <div class="doodle-3">🚲</div>
+
+          <div class="eyebrow">malá skupina • pohyb • příroda • rodinná atmosféra</div>
+          <h1>Týden v pohybu a v pohodě, na který děti nezapomenou.</h1>
           <p class="lead">
-            Menší sportovní příměstský tábor pro děti přibližně <strong>6 – 10 let</strong>, kde se střídá
+            Menší příměstský tábor pro děti přibližně <strong>6–10 let</strong>, kde se střídá
             pohyb venku, tvoření, hry, dobrodružství a klidné zázemí. Bez davů, bez chaosu,
             s důrazem na bezpečí, přirozený rytmus dne a opravdovou péči.
           </p>
+
           <div class="hero-actions">
             <a class="button" href="#prihlaska">Mám zájem o místo</a>
             <a class="button-outline" href="#info">Praktické informace</a>
           </div>
+
           <div class="hero-points">
             <div class="mini">
               <strong>Malá skupina</strong>
@@ -444,16 +741,32 @@
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-visual" aria-label="Děti v letní přírodě"></div>
+        <div class="panel paper-texture hero-card">
+          <div class="hero-visual" aria-label="Dítě na kole">
+            <div class="hero-badge">max. 15 dětí</div>
+            <div class="hero-tag">Nové sporty, nové zážitky a pohodová parta</div>
+          </div>
+
           <div class="hero-caption">
             <div class="mini">
               <strong>Pro děti, které chtějí vyzkoušet nové sporty, nové zážitky</strong>
-              <span>“</span>
+              <span>Sportovní příměšťák postavený na pohybu, radosti a dobré atmosféře.</span>
             </div>
             <div class="mini">
               <strong>Respekt k věku i tempu</strong>
-              <span>Aktivity nabídneme, ale nebudeme nutit. Vždy budou k dispozici alternativy.
+              <span>Aktivity nabídneme, ale nebudeme nutit. Vždy budou k dispozici alternativy.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="doodle-4"></div>
+      <div class="doodle-5">✦</div>
+      <div class="doodle-6">🛶</div>
+    </section>
+
+    <section id="o-tabore">
+      <div class="container">
         <div class="section-head">
           <div>
             <div class="eyebrow">o táboře</div>
@@ -465,26 +778,30 @@
         </div>
 
         <div class="grid-3">
-          <div class="card">
-            <div class="icon">⛰️</div>
+          <div class="card paper-texture">
+            <div class="icon">🏃</div>
             <h3>Pohyb a pohoda</h3>
-            <p>Každý den venku, kola, paddleboardy, skate, tvoření, tmelení kolektivu i radost z obyčejných věcí, odpočinek a "prostě jen být.</div>
-          <div class="card">
+            <p>Každý den venku, kola, paddleboardy, skate, tvoření, tmelení kolektivu i radost z obyčejných věcí, odpočinek a „prostě jen být“.</p>
+          </div>
+
+          <div class="card paper-texture">
             <div class="icon">🎨</div>
             <h3>Tvoření, které má smysl</h3>
             <p>Ne sériová výroba z nudy, ale promyšlené tvoření s důrazem na individualitu každého.</p>
           </div>
-          <div class="card">
-            <div class="icon">🌿</div>
+
+          <div class="card paper-texture">
+            <div class="icon">🤍</div>
             <h3>Klidná rodinná atmosféra</h3>
-            <p>Malá skupina (max. 15 dětí) a dva dospělí znamená, že vedoucí ví, co které dítě potřebuje.</div>
+            <p>Malá skupina (max. 15 dětí) a dva dospělí znamená, že vedoucí ví, co které dítě potřebuje.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section>
       <div class="container grid-2">
-        <div class="note">
+        <div class="note paper-texture">
           <div class="eyebrow">pro koho</div>
           <h2>Pro děti, které mají rády pohyb, potřebují pohodu a chtějí zažít opravdové léto</h2>
           <p>
@@ -492,7 +809,8 @@
             aby se v něm cítily dobře jak živější děti, které potřebují akci, tak i ty, které potřebují bezpečnější rozjezd.
           </p>
         </div>
-        <div class="note">
+
+        <div class="note paper-texture">
           <div class="eyebrow">zázemí</div>
           <h2>Venku, ale s jistotou zázemí</h2>
           <p>
@@ -514,7 +832,7 @@
           </p>
         </div>
 
-        <div class="program-box">
+        <div class="program-box paper-texture">
           <div class="program-list">
             <div class="program-item">
               <div class="time">8:00–9:00</div>
@@ -523,6 +841,7 @@
                 <p>Klidný start dne, přivítání, ranní hra nebo drobné tvoření.</p>
               </div>
             </div>
+
             <div class="program-item">
               <div class="time">9:00–11:30</div>
               <div>
@@ -530,6 +849,7 @@
                 <p>Pohyb, venkovní program, výprava, tematická aktivita nebo sportovní mini výzvy.</p>
               </div>
             </div>
+
             <div class="program-item">
               <div class="time">12:00–13:00</div>
               <div>
@@ -537,6 +857,7 @@
                 <p>Zklidnění, jídlo, čtení, stín, klidnější činnost a prostor nadechnout se.</p>
               </div>
             </div>
+
             <div class="program-item">
               <div class="time">13:00–15:30</div>
               <div>
@@ -544,6 +865,7 @@
                 <p>Pohyb, tvoření, zahrada, klubovna nebo stodola podle počasí.</p>
               </div>
             </div>
+
             <div class="program-item">
               <div class="time">16:00–17:00</div>
               <div>
@@ -552,6 +874,72 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="o-nas">
+      <div class="container about-wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">o nás</div>
+            <h2>Kdo tábor povede</h2>
+          </div>
+          <p>
+            Důležité je pro nás nejen to, co děti zažijí, ale i s kým ten týden stráví.
+          </p>
+        </div>
+
+        <div class="about-intro paper-texture">
+          <p>
+            Za táborem stojíme my dvě. Každá jsme trochu jiná, ale právě v tom je naše síla — spojuje nás vztah k dětem, pohybu, respektujícímu přístupu a chuť vytvářet prostředí, kde se děti cítí dobře a zároveň si odnesou spoustu zážitků.
+          </p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card paper-texture">
+            <div class="person-photo">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80" alt="Marie" />
+            </div>
+            <div class="person-body">
+              <div class="eyebrow">Marie</div>
+              <h3>[[DOPLŇ KRÁTKÝ NADPIS O SOBĚ]]</h3>
+              <div class="tag-row">
+                <span class="tag">[[např. citlivý přístup]]</span>
+                <span class="tag">[[např. organizace]]</span>
+                <span class="tag">[[např. práce s dětmi]]</span>
+              </div>
+              <p>
+                [[SEM DOPLŇ 3–6 VĚT O SOBĚ. Např. co tě baví, co přinášíš dětem, jaký je tvůj styl, proč ten tábor děláš, v čem jsi pro děti i rodiče oporou.]]
+              </p>
+            </div>
+          </article>
+
+          <article class="person-card paper-texture">
+            <div class="person-photo">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80" alt="Sylva" />
+            </div>
+            <div class="person-body">
+              <div class="eyebrow">Sylva</div>
+              <h3>[[DOPLŇ KRÁTKÝ NADPIS O SYLVĚ]]</h3>
+              <div class="tag-row">
+                <span class="tag">[[např. sport]]</span>
+                <span class="tag">[[např. energie]]</span>
+                <span class="tag">[[např. motivace]]</span>
+              </div>
+              <p>
+                [[SEM DOPLŇ 3–6 VĚT O SYLVĚ. Např. co dětem předává, jaká je její energie, jak umí motivovat, co má ráda a proč se na tábor hodí právě ona.]]
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="about-joint paper-texture">
+          <div class="eyebrow">společně</div>
+          <h3>Co nás spojuje</h3>
+          <p>
+            [[SEM DOPLŇ SPOLEČNÝ TEXT O VÁS DVOU. Např. že chcete dětem nabídnout aktivní a přitom bezpečný týden, kde budou moci zkoušet nové věci, zažít radost z pohybu, tvoření i kamarádství a zároveň se cítit přijaté takové, jaké jsou.]]
+          </p>
         </div>
       </div>
     </section>
@@ -569,22 +957,25 @@
         </div>
 
         <div class="grid-4">
-          <div class="card">
+          <div class="card paper-texture">
             <div class="icon">📅</div>
             <h3>Termíny</h3>
             <p><span class="strong">1. turnus:</span> [[DOPLŇ DATUM]]<br><span class="strong">2. turnus:</span> [[DOPLŇ DATUM]]</p>
           </div>
-          <div class="card">
+
+          <div class="card paper-texture">
             <div class="icon">👧</div>
             <h3>Věk dětí</h3>
             <p>Doporučeně cca <span class="strong">5–9 let</span><br>menší skupina, individuálnější přístup</p>
           </div>
-          <div class="card">
+
+          <div class="card paper-texture">
             <div class="icon">🕗</div>
             <h3>Čas</h3>
             <p><span class="strong">Po–Pá</span><br>orientačně 8:00–17:00</p>
           </div>
-          <div class="card">
+
+          <div class="card paper-texture">
             <div class="icon">📍</div>
             <h3>Místo</h3>
             <p>[[DOPLŇ PŘESNOU OBEC / ADRESU]]<br>zahrada, venkovní zázemí, klubovna</p>
@@ -595,7 +986,7 @@
 
     <section>
       <div class="container grid-2">
-        <div class="card">
+        <div class="card paper-texture">
           <div class="eyebrow">cena a rezervace</div>
           <h2>Jednoduchý a lidský způsob přihlášení</h2>
           <p>
@@ -609,7 +1000,8 @@
             <div><strong>Kontakt:</strong> [[telefon]] • [[e-mail]]</div>
           </div>
         </div>
-        <div class="card">
+
+        <div class="card paper-texture">
           <div class="eyebrow">co si děti vezmou s sebou</div>
           <h2>Co budou potřebovat</h2>
           <div class="checklist">
@@ -637,18 +1029,22 @@
         </div>
 
         <div class="faq">
-          <div class="faq-item">
+          <div class="faq-item paper-texture">
             <h3>Je tábor vhodný i pro citlivější děti?</h3>
             <p>Rozhodně! Právě menší skupina a rodinnější prostředí je takové děti velká výhoda. Vždy ale záleží na konkrétním dítěti a jeho samostatnosti.</p>
           </div>
-          <div class="faq-item">
+
+          <div class="faq-item paper-texture">
             <h3>Co když bude špatné počasí?</h3>
-            <p>Máme připravené zázemí pod střechou a program umíme přizpůsobit tak, aby to děti stále bavilo a poznali něco nového (jóga, ping pong, tvoření, balanční aktivity, týmové hry).</div>
-          <div class="faq-item">
-            <h3>Budou děti jen venku?</h3>
-            <p>Základem tábora je venkovní program, ale vždy najdeme stín na odpočinek, nebo v případě nepřízně počasí zajistíme aktivity pod střechou. </p>
+            <p>Máme připravené zázemí pod střechou a program umíme přizpůsobit tak, aby to děti stále bavilo a poznali něco nového (jóga, ping pong, tvoření, balanční aktivity, týmové hry).</p>
           </div>
-          <div class="faq-item">
+
+          <div class="faq-item paper-texture">
+            <h3>Budou děti jen venku?</h3>
+            <p>Základem tábora je venkovní program, ale vždy najdeme stín na odpočinek, nebo v případě nepřízně počasí zajistíme aktivity pod střechou.</p>
+          </div>
+
+          <div class="faq-item paper-texture">
             <h3>Můžu se zatím jen nezávazně ozvat?</h3>
             <p>Ano. Na začátku je to ideální. Rodič si rezervuje předběžný zájem a dostane informace, jakmile bude spuštěno finální přihlašování.</p>
           </div>
@@ -658,7 +1054,7 @@
 
     <section id="prihlaska">
       <div class="container">
-        <div class="cta-box">
+        <div class="cta-box paper-texture">
           <div>
             <div class="eyebrow">přihláška / předběžný zájem</div>
             <h2>Chcete vědět víc nebo si předběžně rezervovat místo?</h2>
@@ -667,10 +1063,12 @@
               Tuto sekci pak můžeš jednoduše propojit s formulářem, e-mailem nebo tlačítkem na WhatsApp.
             </p>
           </div>
+
           <div>
             <a class="button" href="mailto:[[DOPLŇ EMAIL]]?subject=Mám%20zájem%20o%20příměstský%20tábor">Napsat e-mail</a>
             <div style="height: 12px"></div>
             <a class="button-outline" href="tel:[[DOPLŇ TELEFON]]">Zavolat</a>
+
             <div class="checklist" style="margin-top: 20px;">
               <div>nezávazný zájem</div>
               <div>dotazy k programu</div>
@@ -685,10 +1083,8 @@
   <footer>
     <div class="container footer-box">
       <div>© [[DOPLŇ NÁZEV TÁBORA / JMÉNO]]</div>
-      <div>
-        stránka připravená pro <span class="strong">harradise.cz/primestak</span>
-      </div>
+      <div>stránka připravená pro <span class="strong">harradise.cz/primestak</span></div>
     </div>
   </footer>
 </body>
-</html>
+</html> 
