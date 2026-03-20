@@ -304,6 +304,143 @@
     }
 
     .hero-visual {
+      .hero-visual {
+  min-height: 470px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(36,49,38,0.18)),
+    url('https://images.unsplash.com/photo-1508973378895-4c6f3d1f7d4d?auto=format&fit=crop&w=1400&q=80') center/cover;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(223,241,238,0.22), transparent 45%),
+    linear-gradient(325deg, rgba(223,241,238,0.18), transparent 40%);
+  pointer-events: none;
+}
+
+.hero-sport-icon {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  color: #7fbcc3;
+  opacity: 0.92;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.06));
+}
+
+.hero-sport-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-bike {
+  left: 28px;
+  bottom: 30px;
+  width: 88px;
+  height: 88px;
+}
+
+.hero-board {
+  right: 120px;
+  bottom: 26px;
+  width: 92px;
+  height: 92px;
+}
+
+.hero-skate {
+  right: 26px;
+  bottom: 24px;
+  width: 70px;
+  height: 70px;
+  color: var(--orange);
+}
+
+.hero-flag {
+  left: 24px;
+  top: 34px;
+  width: 60px;
+  height: 60px;
+}
+
+.hero-splash {
+  position: absolute;
+  right: 36px;
+  top: 150px;
+  width: 180px;
+  height: 110px;
+  color: #7fbcc3;
+  opacity: 0.28;
+}
+
+.hero-arrow {
+  position: absolute;
+  right: 18px;
+  top: 72px;
+  width: 116px;
+  height: 60px;
+  color: var(--orange);
+  opacity: 0.85;
+}
+
+.hero-star {
+  position: absolute;
+  left: 18px;
+  top: 108px;
+  font-size: 24px;
+  color: var(--orange);
+}
+
+.hero-triangle {
+  position: absolute;
+  right: 86px;
+  top: 36px;
+  font-size: 24px;
+  color: #d6d6d6;
+}
+
+.hero-badge {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  background: var(--orange);
+  color: white;
+  font-weight: 900;
+  border-radius: 999px;
+  padding: 10px 14px;
+  box-shadow: 0 10px 24px rgba(243,154,52,0.25);
+  transform: rotate(-4deg);
+  z-index: 2;
+}
+
+.hero-tag {
+  position: absolute;
+  left: 18px;
+  bottom: 126px;
+  background: rgba(255,255,255,0.93);
+  border-radius: 18px;
+  padding: 12px 14px;
+  max-width: 260px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  font-weight: 800;
+  color: var(--ink);
+  z-index: 2;
+}
+
+@media (max-width: 640px) {
+  .hero-bike { width: 64px; height: 64px; left: 18px; bottom: 18px; }
+  .hero-board { width: 70px; height: 70px; right: 84px; bottom: 14px; }
+  .hero-skate { width: 54px; height: 54px; right: 18px; bottom: 14px; }
+  .hero-flag { width: 44px; height: 44px; left: 18px; top: 18px; }
+  .hero-splash { width: 120px; height: 74px; right: 18px; top: 110px; }
+  .hero-arrow { width: 82px; height: 42px; right: 12px; top: 58px; }
+  .hero-star, .hero-triangle { display: none; }
+}
       min-height: 470px;
       border-radius: 24px;
       position: relative;
