@@ -303,6 +303,33 @@
       gap: 16px;
     }
 
+    .person-card {
+  overflow: visible;
+  text-align: center;
+  padding-top: 24px;
+}
+
+.person-photo-circle {
+  width: min(260px, 78%);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8px solid rgba(255,255,255,0.92);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.14);
+  background: linear-gradient(135deg, var(--mint), var(--orange-soft));
+}
+
+.person-photo-circle--offset {
+  width: min(220px, 68%);
+}
+
+.person-photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
     .hero-visual {
       .hero-visual {
   min-height: 470px;
@@ -1368,25 +1395,43 @@
           </p>
         </div>
 
-        <div class="people-grid">
-          <article class="person-card paper-texture">
-            <div class="person-photo">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80" alt="Marie" />
-              <div class="circle-badge"><svg><use href="#icon-star"></use></svg></div>
-            </div>
-            <div class="person-body">
-              <div class="eyebrow">Marie</div>
-              <h3>[[DOPLŇ KRÁTKÝ NADPIS O SOBĚ]]</h3>
-              <div class="tag-row">
-                <span class="tag">[[např. citlivý přístup]]</span>
-                <span class="tag">[[např. organizace]]</span>
-                <span class="tag">[[např. práce s dětmi]]</span>
-              </div>
-              <p>
-                [[SEM DOPLŇ 3–6 VĚT O SOBĚ. Např. co tě baví, co přinášíš dětem, jaký je tvůj styl, proč ten tábor děláš, v čem jsi pro děti i rodiče oporou.]]
-              </p>
-            </div>
-          </article>
+<div class="people-grid">
+  <article class="person-card paper-texture">
+    <div class="person-photo-circle">
+      <img src="marie.jpg" alt="Marie" />
+    </div>
+    <div class="person-body">
+      <div class="eyebrow">Marie</div>
+      <h3>[[DOPLŇ KRÁTKÝ NADPIS O SOBĚ]]</h3>
+      <div class="tag-row">
+        <span class="tag">[[např. citlivý přístup]]</span>
+        <span class="tag">[[např. organizace]]</span>
+        <span class="tag">[[např. práce s dětmi]]</span>
+      </div>
+      <p>
+        [[SEM DOPLŇ TEXT]]
+      </p>
+    </div>
+  </article>
+
+  <article class="person-card paper-texture">
+    <div class="person-photo-circle person-photo-circle--offset">
+      <img src="sylva.jpg" alt="Sylva" />
+    </div>
+    <div class="person-body">
+      <div class="eyebrow">Sylva</div>
+      <h3>[[DOPLŇ KRÁTKÝ NADPIS O SYLVĚ]]</h3>
+      <div class="tag-row">
+        <span class="tag">[[např. sport]]</span>
+        <span class="tag">[[např. energie]]</span>
+        <span class="tag">[[např. motivace]]</span>
+      </div>
+      <p>
+        [[SEM DOPLŇ TEXT]]
+      </p>
+    </div>
+  </article>
+</div>
 
           <article class="person-card paper-texture">
             <div class="person-photo">
