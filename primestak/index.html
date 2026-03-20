@@ -22,7 +22,6 @@
       --line: #e6ddd1;
       --shadow: 0 18px 40px rgba(47, 53, 60, 0.10);
       --radius: 28px;
-      --radius-sm: 18px;
       --max: 1180px;
     }
 
@@ -45,10 +44,10 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.20;
+      opacity: 0.16;
       background-image:
-        linear-gradient(rgba(36,79,103,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(36,79,103,0.06) 1px, transparent 1px);
+        linear-gradient(rgba(36,79,103,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36,79,103,0.05) 1px, transparent 1px);
       background-size: 42px 42px;
       mask-image: linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 70%);
       z-index: -1;
@@ -67,7 +66,7 @@
       top: 0;
       z-index: 100;
       backdrop-filter: blur(14px);
-      background: rgba(252, 251, 248, 0.88);
+      background: rgba(252, 251, 248, 0.90);
       border-bottom: 1px solid rgba(230, 221, 209, 0.9);
     }
 
@@ -177,8 +176,7 @@
       inset: 0;
       pointer-events: none;
       opacity: 0.08;
-      background-image:
-        radial-gradient(rgba(0,0,0,0.35) 0.6px, transparent 0.8px);
+      background-image: radial-gradient(rgba(0,0,0,0.35) 0.6px, transparent 0.8px);
       background-size: 7px 7px;
       mix-blend-mode: multiply;
     }
@@ -226,10 +224,14 @@
     }
 
     h1 {
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      font-size: clamp(2.15rem, 4.8vw, 4.5rem);
       font-weight: 950;
       color: var(--ink);
-      max-width: 11ch;
+      max-width: none;
+      line-height: 0.98;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 18px;
     }
 
     h2 {
@@ -243,6 +245,10 @@
       font-weight: 850;
       color: var(--ink-dark);
     }
+
+    .desktop-title { display: block; }
+    .mobile-title { display: none; }
+    .nowrap { white-space: nowrap; }
 
     .lead {
       font-size: 1.08rem;
@@ -304,7 +310,7 @@
       overflow: hidden;
       background:
         linear-gradient(180deg, rgba(255,255,255,0.08), rgba(36,49,38,0.20)),
-        url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1400&q=80') center/cover;
+        url('https://images.unsplash.com/photo-1508973378895-4c6f3d1f7d4d?auto=format&fit=crop&w=1400&q=80') center/cover;
     }
 
     .hero-tag {
@@ -341,34 +347,28 @@
 
     .doodle,
     .doodle-2,
-    .doodle-3,
     .doodle-4,
-    .doodle-5,
-    .doodle-6 {
+    .shape-star,
+    .shape-triangle,
+    .shape-cross,
+    .shape-circle,
+    .shape-grid,
+    .shape-burst,
+    .shape-splash,
+    .svg-icon {
       position: absolute;
       pointer-events: none;
       opacity: 0.9;
     }
 
     .doodle {
-      top: 30px;
-      right: 40px;
-      width: 42px;
-      height: 42px;
+      top: 28px;
+      right: 42px;
+      width: 46px;
+      height: 46px;
       border: 4px solid var(--orange);
       border-radius: 50%;
-    }
-
-    .doodle::before,
-    .doodle::after {
-      content: "";
-      position: absolute;
-      inset: -10px;
-      border-radius: 50%;
-      border: 4px dashed transparent;
-      border-top-color: var(--orange);
-      border-left-color: var(--orange);
-      transform: rotate(18deg);
+      opacity: 0.2;
     }
 
     .doodle-2 {
@@ -380,14 +380,6 @@
       border-top: 5px solid #74b7bf;
       transform: skew(-12deg);
       opacity: 0.8;
-    }
-
-    .doodle-3 {
-      left: 26px;
-      bottom: 88px;
-      color: #7fbcc3;
-      font-size: 56px;
-      line-height: 1;
     }
 
     .doodle-4 {
@@ -413,21 +405,79 @@
       transform: rotate(45deg);
     }
 
-    .doodle-5 {
-      left: 110px;
-      top: 290px;
+    .shape-star {
+      left: 24px;
+      top: 88px;
       color: var(--orange);
-      font-size: 34px;
-      transform: rotate(-12deg);
+      font-size: 28px;
     }
 
-    .doodle-6 {
-      right: 90px;
-      bottom: 98px;
-      color: #7fbcc3;
-      font-size: 52px;
-      transform: rotate(8deg);
+    .shape-triangle {
+      right: 34px;
+      top: 132px;
+      color: #d0d0d0;
+      font-size: 28px;
     }
+
+    .shape-cross {
+      right: 126px;
+      top: 90px;
+      color: var(--orange);
+      font-size: 22px;
+    }
+
+    .shape-circle {
+      right: 68px;
+      bottom: 116px;
+      color: #7fbcc3;
+      font-size: 16px;
+    }
+
+    .shape-grid {
+      left: 40px;
+      bottom: 110px;
+      width: 120px;
+      height: 70px;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(36,79,103,0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36,79,103,0.12) 1px, transparent 1px);
+      background-size: 18px 18px;
+      transform: rotate(-4deg);
+    }
+
+    .shape-burst {
+      right: 30px;
+      bottom: 24px;
+      width: 84px;
+      height: 84px;
+      opacity: 0.4;
+    }
+
+    .shape-splash {
+      right: 120px;
+      bottom: 140px;
+      width: 180px;
+      height: 100px;
+      opacity: 0.22;
+    }
+
+    .svg-icon {
+      width: 72px;
+      height: 72px;
+      color: #7fbcc3;
+      opacity: 0.8;
+    }
+
+    .svg-orange { color: var(--orange); opacity: 0.8; }
+    .svg-mint { color: #7fbcc3; opacity: 0.8; }
+
+    .bike-hero { left: 22px; bottom: 82px; width: 74px; height: 74px; }
+    .board-hero { right: 84px; bottom: 84px; width: 88px; height: 88px; }
+    .skate-hero { right: 36px; bottom: 24px; width: 70px; height: 70px; }
+    .ball-hero { left: 124px; top: 298px; width: 50px; height: 50px; }
+    .megaphone-hero { right: 164px; top: 410px; width: 56px; height: 56px; }
+    .flag-hero { left: 44px; top: 342px; width: 58px; height: 58px; }
 
     section {
       padding: 28px 0;
@@ -484,8 +534,39 @@
       display: grid;
       place-items: center;
       margin-bottom: 14px;
-      font-size: 1.25rem;
       box-shadow: inset 0 0 0 1px rgba(36,79,103,0.06);
+      overflow: hidden;
+    }
+
+    .icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--ink);
+      opacity: 0.9;
+    }
+
+    .sport-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .sport-chip {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.86);
+      border: 1px solid var(--line);
+    }
+
+    .sport-chip svg {
+      width: 22px;
+      height: 22px;
+      color: var(--ink);
+      opacity: 0.8;
     }
 
     .note {
@@ -561,12 +642,32 @@
       font-weight: 700;
       font-size: 0.98rem;
       overflow: hidden;
+      position: relative;
     }
 
     .person-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .person-photo .circle-badge {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      display: grid;
+      place-items: center;
+    }
+
+    .circle-badge svg {
+      width: 18px;
+      height: 18px;
+      color: var(--orange);
     }
 
     .person-body {
@@ -644,12 +745,6 @@
     .muted { color: var(--muted); }
     .strong { font-weight: 800; color: var(--text); }
 
-    .tiny-doodle {
-      display: inline-block;
-      color: var(--orange);
-      margin-left: 6px;
-    }
-
     @media (max-width: 980px) {
       .hero-grid,
       .cta-box,
@@ -665,28 +760,166 @@
         grid-template-columns: 1fr;
       }
 
-      h1 { max-width: none; }
-      .hero-copy { padding: 30px; }
       .nav { align-items: start; }
       .nav-links { justify-content: flex-end; }
-      .doodle-4, .doodle-5, .doodle-6 { display: none; }
+
+      .doodle-4,
+      .shape-splash,
+      .shape-burst,
+      .board-hero,
+      .skate-hero,
+      .megaphone-hero {
+        display: none;
+      }
     }
 
     @media (max-width: 640px) {
-      .nav { flex-direction: column; align-items: stretch; }
-      .nav-links { justify-content: space-between; }
-      .hero { padding-top: 28px; }
-      .hero-copy, .card, .note, .program-box, .faq-item, .cta-box, .about-intro, .about-joint, .person-body {
+      .nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links {
+        justify-content: space-between;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-copy,
+      .card,
+      .note,
+      .program-box,
+      .faq-item,
+      .cta-box,
+      .about-intro,
+      .about-joint,
+      .person-body {
         padding: 22px;
       }
-      .program-item { grid-template-columns: 1fr; gap: 8px; }
-      .hero-visual { min-height: 330px; }
-      .hero-badge, .hero-tag { transform: none; }
-      .doodle, .doodle-2, .doodle-3 { display: none; }
+
+      .hero-copy {
+        padding: 20px;
+      }
+
+      .lead {
+        font-size: 1rem;
+      }
+
+      h1 {
+        font-size: 2.9rem;
+        line-height: 1.02;
+      }
+
+      .desktop-title {
+        display: none;
+      }
+
+      .mobile-title {
+        display: block;
+      }
+
+      .program-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero-visual {
+        min-height: 330px;
+      }
+
+      .hero-badge,
+      .hero-tag {
+        transform: none;
+      }
+
+      .doodle,
+      .doodle-2,
+      .shape-grid,
+      .shape-burst,
+      .shape-splash,
+      .bike-hero,
+      .flag-hero,
+      .ball-hero,
+      .shape-circle,
+      .shape-cross,
+      .shape-triangle {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- SVG symbol definitions -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="icon-bike" viewBox="0 0 64 64">
+        <g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="16" cy="46" r="10"></circle>
+          <circle cx="48" cy="46" r="10"></circle>
+          <path d="M24 18h9l9 17"></path>
+          <path d="M24 18l-8 28"></path>
+          <path d="M26 19l13 11"></path>
+          <path d="M39 30H26"></path>
+          <path d="M42 18h6"></path>
+        </g>
+      </symbol>
+
+      <symbol id="icon-board" viewBox="0 0 64 64">
+        <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 38c10-10 34-10 44 0"></path>
+          <path d="M10 38c10 10 34 10 44 0"></path>
+          <path d="M20 36l4 4"></path>
+          <path d="M31 34l4 6"></path>
+          <path d="M41 36l4 4"></path>
+        </g>
+      </symbol>
+
+      <symbol id="icon-skate" viewBox="0 0 64 64">
+        <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 34h28c3 0 6-2 7-5l2-5"></path>
+          <circle cx="22" cy="44" r="4"></circle>
+          <circle cx="42" cy="44" r="4"></circle>
+          <path d="M18 38h28"></path>
+        </g>
+      </symbol>
+
+      <symbol id="icon-ball" viewBox="0 0 64 64">
+        <g fill="none" stroke="currentColor" stroke-width="3.2">
+          <circle cx="32" cy="32" r="20"></circle>
+          <path d="M18 22c8 0 10 4 14 10"></path>
+          <path d="M46 22c-8 0-10 4-14 10"></path>
+          <path d="M20 42c5-2 9-2 12 0"></path>
+          <path d="M44 42c-5-2-9-2-12 0"></path>
+        </g>
+      </symbol>
+
+      <symbol id="icon-flag" viewBox="0 0 64 64">
+        <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 10v44"></path>
+          <path d="M18 14h24l-5 8 5 8H18z"></path>
+        </g>
+      </symbol>
+
+      <symbol id="icon-megaphone" viewBox="0 0 64 64">
+        <g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 34l24-12v20L16 30z"></path>
+          <path d="M16 30v12"></path>
+          <path d="M20 42l4 8"></path>
+          <path d="M46 24l6-4"></path>
+          <path d="M48 32h8"></path>
+          <path d="M46 40l6 4"></path>
+        </g>
+      </symbol>
+
+      <symbol id="icon-star" viewBox="0 0 64 64">
+        <path d="M32 10l5 15 15 5-15 5-5 15-5-15-15-5 15-5z" fill="currentColor"></path>
+      </symbol>
+    </defs>
+  </svg>
+
   <header class="topbar">
     <div class="container nav">
       <a href="#top" class="brand">
@@ -710,14 +943,31 @@
         <div class="panel paper-texture hero-copy">
           <div class="doodle"></div>
           <div class="doodle-2"></div>
-          <div class="doodle-3">🚲</div>
+          <div class="shape-star">✦</div>
+          <div class="shape-triangle">△</div>
+          <div class="shape-cross">✕</div>
+          <div class="shape-circle">○</div>
+          <div class="shape-grid"></div>
+
+          <svg class="svg-icon svg-mint bike-hero"><use href="#icon-bike"></use></svg>
+          <svg class="svg-icon svg-mint flag-hero"><use href="#icon-flag"></use></svg>
+          <svg class="svg-icon svg-orange ball-hero"><use href="#icon-ball"></use></svg>
 
           <div class="eyebrow">malá skupina • pohyb • příroda • rodinná atmosféra</div>
-          <h1>Týden<br>
-            <span class="nowrap">V POHYBU</span><br>
-            a hlavně<br>
-            <span class="nowrap">V POHODĚ</span>
+
+          <h1>
+            <span class="desktop-title">
+              Týden<br>
+              <span class="nowrap">V POHYBU</span><br>
+              a hlavně<br>
+              <span class="nowrap">V POHODĚ</span>
+            </span>
+            <span class="mobile-title">
+              <span class="nowrap">Týden V POHYBU</span><br>
+              <span class="nowrap">a hlavně V POHODĚ</span>
+            </span>
           </h1>
+
           <p class="lead">
             Menší příměstský tábor pro děti přibližně <strong>6–10 let</strong>, kde se střídá
             pohyb venku, tvoření, hry, dobrodružství a klidné zázemí. Bez davů, bez chaosu,
@@ -747,7 +997,7 @@
 
         <div class="panel paper-texture hero-card">
           <div class="hero-visual" aria-label="Dítě na kole">
-            <div class="hero-badge">max. 15 dětí</div>
+            <div class="hero-badge">sportovní příměšťák</div>
             <div class="hero-tag">Nové sporty, nové zážitky a pohodová parta</div>
           </div>
 
@@ -765,8 +1015,20 @@
       </div>
 
       <div class="doodle-4"></div>
-      <div class="doodle-5">✦</div>
-      <div class="doodle-6">🛶</div>
+      <div class="shape-splash">
+        <svg viewBox="0 0 180 100" width="100%" height="100%" fill="currentColor" style="color:#7fbcc3;">
+          <path d="M11 68c18-22 38-14 60-22 21-8 35-27 63-20 16 4 28 17 34 35-14-7-22-1-36 6-17 8-37 0-57 6-22 7-43 15-64-5z"></path>
+        </svg>
+      </div>
+      <div class="shape-burst">
+        <svg viewBox="0 0 84 84" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="3.2" style="color:var(--orange);">
+          <path d="M42 8v14M42 62v14M8 42h14M62 42h14M18 18l10 10M56 56l10 10M18 66l10-10M56 28l10-10"></path>
+        </svg>
+      </div>
+
+      <svg class="svg-icon svg-mint board-hero"><use href="#icon-board"></use></svg>
+      <svg class="svg-icon svg-orange skate-hero"><use href="#icon-skate"></use></svg>
+      <svg class="svg-icon svg-orange megaphone-hero"><use href="#icon-megaphone"></use></svg>
     </section>
 
     <section id="o-tabore">
@@ -783,21 +1045,36 @@
 
         <div class="grid-3">
           <div class="card paper-texture">
-            <div class="icon">🏃</div>
+            <div class="icon"><svg><use href="#icon-bike"></use></svg></div>
             <h3>Pohyb a pohoda</h3>
             <p>Každý den venku, kola, paddleboardy, skate, tvoření, tmelení kolektivu i radost z obyčejných věcí, odpočinek a „prostě jen být“.</p>
+            <div class="sport-row">
+              <div class="sport-chip"><svg><use href="#icon-bike"></use></svg></div>
+              <div class="sport-chip"><svg><use href="#icon-board"></use></svg></div>
+              <div class="sport-chip"><svg><use href="#icon-skate"></use></svg></div>
+            </div>
           </div>
 
           <div class="card paper-texture">
-            <div class="icon">🎨</div>
+            <div class="icon"><svg><use href="#icon-star"></use></svg></div>
             <h3>Tvoření, které má smysl</h3>
             <p>Ne sériová výroba z nudy, ale promyšlené tvoření s důrazem na individualitu každého.</p>
+            <div class="sport-row">
+              <div class="sport-chip"><svg><use href="#icon-star"></use></svg></div>
+              <div class="sport-chip"><svg><use href="#icon-ball"></use></svg></div>
+              <div class="sport-chip"><svg><use href="#icon-flag"></use></svg></div>
+            </div>
           </div>
 
           <div class="card paper-texture">
-            <div class="icon">🤍</div>
+            <div class="icon"><svg><use href="#icon-megaphone"></use></svg></div>
             <h3>Klidná rodinná atmosféra</h3>
             <p>Malá skupina (max. 15 dětí) a dva dospělí znamená, že vedoucí ví, co které dítě potřebuje.</p>
+            <div class="sport-row">
+              <div class="sport-chip"><svg><use href="#icon-ball"></use></svg></div>
+              <div class="sport-chip"><svg><use href="#icon-megaphone"></use></svg></div>
+              <div class="sport-chip"><svg><use href="#icon-flag"></use></svg></div>
+            </div>
           </div>
         </div>
       </div>
@@ -904,6 +1181,7 @@
           <article class="person-card paper-texture">
             <div class="person-photo">
               <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80" alt="Marie" />
+              <div class="circle-badge"><svg><use href="#icon-star"></use></svg></div>
             </div>
             <div class="person-body">
               <div class="eyebrow">Marie</div>
@@ -922,6 +1200,7 @@
           <article class="person-card paper-texture">
             <div class="person-photo">
               <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80" alt="Sylva" />
+              <div class="circle-badge"><svg><use href="#icon-bike"></use></svg></div>
             </div>
             <div class="person-body">
               <div class="eyebrow">Sylva</div>
@@ -962,25 +1241,25 @@
 
         <div class="grid-4">
           <div class="card paper-texture">
-            <div class="icon">📅</div>
+            <div class="icon"><svg><use href="#icon-star"></use></svg></div>
             <h3>Termíny</h3>
             <p><span class="strong">1. turnus:</span> [[DOPLŇ DATUM]]<br><span class="strong">2. turnus:</span> [[DOPLŇ DATUM]]</p>
           </div>
 
           <div class="card paper-texture">
-            <div class="icon">👧</div>
+            <div class="icon"><svg><use href="#icon-ball"></use></svg></div>
             <h3>Věk dětí</h3>
             <p>Doporučeně cca <span class="strong">5–9 let</span><br>menší skupina, individuálnější přístup</p>
           </div>
 
           <div class="card paper-texture">
-            <div class="icon">🕗</div>
+            <div class="icon"><svg><use href="#icon-flag"></use></svg></div>
             <h3>Čas</h3>
             <p><span class="strong">Po–Pá</span><br>orientačně 8:00–17:00</p>
           </div>
 
           <div class="card paper-texture">
-            <div class="icon">📍</div>
+            <div class="icon"><svg><use href="#icon-bike"></use></svg></div>
             <h3>Místo</h3>
             <p>[[DOPLŇ PŘESNOU OBEC / ADRESU]]<br>zahrada, venkovní zázemí, klubovna</p>
           </div>
@@ -1091,4 +1370,4 @@
     </div>
   </footer>
 </body>
-</html> 
+</html>
