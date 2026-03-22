@@ -328,8 +328,9 @@
     .mini {
       padding: 15px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.85);
-      border: 1px solid rgba(36,79,103,0.08);
+    background: rgba(255,255,255,0.96);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     }
 
     .mini strong {
@@ -345,20 +346,21 @@
     }
 
     .hero-card {
-      padding: 18px;
-      display: grid;
-      grid-template-rows: 1fr auto;
-      gap: 16px;
-    }
+        padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
     .hero-visual {
   min-height: 470px;
   border-radius: 24px;
   position: relative;
   overflow: hidden;
+  flex: 0 0 auto;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.08), rgba(36,49,38,0.18)),
-    url('hero.jpg') center/cover;
+    url('https://images.unsplash.com/photo-1508973378895-4c6f3d1f7d4d?auto=format&fit=crop&w=1400&q=80') center/cover;
 }
     }
 
@@ -401,10 +403,12 @@
     }
 
     .hero-caption {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
+       display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
 
     .hero-sport-icon {
       position: absolute;
