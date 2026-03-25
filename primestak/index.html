@@ -186,50 +186,52 @@
 
     .hero-copy {
       padding: 42px;
-  position: relative;
-  overflow: hidden;
+      position: relative;
+      overflow: hidden;
     }
-.hero-copy .hero-star {
-  left: auto;
-  right: 110px;
-  top: 120px;
-}
 
-.hero-copy .hero-arrow {
-  right: 18px;
-  top: 165px;
-  width: 92px;
-  height: 48px;
-}
+    .hero-copy .hero-star {
+      left: auto;
+      right: 110px;
+      top: 120px;
+    }
 
-.hero-copy .hero-flag {
-  left: auto;
-  right: 26px;
-  top: 28px;
-  width: 46px;
-  height: 46px;
-}
+    .hero-copy .hero-arrow {
+      right: 18px;
+      top: 165px;
+      width: 92px;
+      height: 48px;
+    }
 
-.hero-copy .hero-bike {
-  left: 24px;
-  bottom: 28px;
-  width: 62px;
-  height: 62px;
-}
+    .hero-copy .hero-flag {
+      left: auto;
+      right: 26px;
+      top: 28px;
+      width: 46px;
+      height: 46px;
+    }
 
-.hero-copy .hero-board {
-  left: 100px;
-  bottom: 18px;
-  width: 64px;
-  height: 64px;
-}
+    .hero-copy .hero-bike {
+      left: 24px;
+      bottom: 28px;
+      width: 62px;
+      height: 62px;
+    }
 
-.hero-copy .hero-skate {
-  right: 34px;
-  bottom: 24px;
-  width: 54px;
-  height: 54px;
-}
+    .hero-copy .hero-board {
+      left: 100px;
+      bottom: 18px;
+      width: 64px;
+      height: 64px;
+    }
+
+    .hero-copy .hero-skate {
+      right: 34px;
+      bottom: 24px;
+      width: 54px;
+      height: 54px;
+    }
+
     .hero-copy::after {
       content: "";
       position: absolute;
@@ -346,20 +348,19 @@
 
     .hero-card {
       padding: 18px;
-      display: grid;
-      grid-template-rows: 1fr auto;
+      display: flex;
+      flex-direction: column;
       gap: 16px;
     }
 
     .hero-visual {
-  min-height: 470px;
-  border-radius: 24px;
-  position: relative;
-  overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(36,49,38,0.18)),
-    url('hero.jpg') center/cover;
-}
+      min-height: 470px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(36,49,38,0.18)),
+        url('hero.jpg') center/cover;
     }
 
     .hero-visual::before {
@@ -761,13 +762,6 @@
 
       .hero-copy { padding: 30px; }
       .nav { align-items: start; }
-
-      .hero-board,
-      .hero-skate,
-      .hero-arrow,
-      .hero-splash {
-        display: none;
-      }
     }
 
     @media (max-width: 640px) {
@@ -833,13 +827,8 @@
       }
 
       .hero-visual {
-  min-height: 420px;
-  background-position: center top;
-      }
-
-      .hero-badge,
-      .hero-tag {
-        transform: none;
+        min-height: 420px;
+        background-position: center top;
       }
 
       .hero-tag {
@@ -854,43 +843,7 @@
         right: 14px;
         top: 14px;
         font-size: 0.9rem;
-      }
-
-      .hero-bike {
-        width: 64px;
-        height: 64px;
-        left: 18px;
-        bottom: 18px;
-      }
-
-      .hero-board {
-        width: 70px;
-        height: 70px;
-        right: 84px;
-        bottom: 14px;
-        display: block;
-      }
-
-      .hero-skate {
-        width: 54px;
-        height: 54px;
-        right: 18px;
-        bottom: 14px;
-        display: block;
-      }
-
-      .hero-flag {
-        width: 44px;
-        height: 44px;
-        left: 18px;
-        top: 18px;
-      }
-
-      .hero-splash,
-      .hero-arrow,
-      .hero-star,
-      .hero-triangle {
-        display: none;
+        transform: none;
       }
 
       .person-photo-circle {
@@ -997,7 +950,6 @@
           <div class="eyebrow">malá skupina • pohyb • rodinná atmosféra</div>
           <div class="hero-star">✦</div>
 
-
           <h1>
             <span class="desktop-title">
               Týden<br>
@@ -1027,10 +979,10 @@
               <strong>Malá skupina</strong>
               <span>15 dětí na min. 2 dospělé osoby</span>
             </div>
-      <div class="mini">
-  <strong>Celodenní program</strong>
-  <span>pondělí–pátek, 8:00&nbsp;–&nbsp;17:00</span>
-</div>
+            <div class="mini">
+              <strong>Celodenní program</strong>
+              <span>pondělí–pátek, 8:00&nbsp;–&nbsp;17:00</span>
+            </div>
             <div class="mini">
               <strong>Venku i pod střechou</strong>
               <span>Soukromá zahrada se stodolou ve Hvozdnici, hřiště a klubovna Sokolu Masečín</span>
@@ -1042,6 +994,10 @@
           <div class="hero-visual" aria-label="Dítě na kole">
             <div class="hero-badge">sportovní příměšťák</div>
             <div class="hero-tag">Nové sporty, nové zážitky a pohodová parta</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="o-tabore">
       <div class="container">
@@ -1051,7 +1007,7 @@
             <h2>Co je na našem příměšťáku jiné</h2>
           </div>
           <p>
-            Chceme, aby mohly děti zkoušet nové věci v příjemném, motivujícím prostředí. Stavíme na respektujícím přístupu a dobré náladě. 
+            Chceme, aby mohly děti zkoušet nové věci v příjemném, motivujícím prostředí. Stavíme na respektujícím přístupu a dobré náladě.
           </p>
         </div>
 
@@ -1060,27 +1016,18 @@
             <div class="icon"><svg><use href="#icon-bike"></use></svg></div>
             <h3>Pohyb a pohoda</h3>
             <p>Kola, paddleboardy, slackline, ale třeba i jóga, lezení a skate nebo koloběžka. Konkrétní program právě ladíme, ale už teď víme, že to bude nabité a přesto plné pohody. Relax v přírodě, tvoření i volná hra budou neméně důležitou součástí.</p>
-            <div class="sport-row">
-            </div>
           </div>
 
           <div class="card paper-texture">
             <div class="icon"><svg><use href="#icon-star"></use></svg></div>
             <h3>Tvoření, které má smysl</h3>
-            <p>Ne sériová výroba z nudy, ale promyšlené tvoření s důrazem na individualitu každého. Milujeme dětskou invenci a rozhodně ji podpoříme. </p>
-            <div class="sport-row">
-            </div>
+            <p>Ne sériová výroba z nudy, ale promyšlené tvoření s důrazem na individualitu každého. Milujeme dětskou invenci a rozhodně ji podpoříme.</p>
           </div>
 
           <div class="card paper-texture">
             <div class="icon"><svg><use href="#icon-megaphone"></use></svg></div>
             <h3>Klidná rodinná atmosféra</h3>
             <p>Malá skupina (max. 15 dětí) a min. dva dospělí je základ. Jen tak můžeme vědět, co které dítě potřebuje.</p>
-            <div class="sport-row">
-              <div class="sport-chip"><svg><use href="#icon-ball"></use></svg></div>
-              <div class="sport-chip"><svg><use href="#icon-megaphone"></use></svg></div>
-              <div class="sport-chip"><svg><use href="#icon-flag"></use></svg></div>
-            </div>
           </div>
         </div>
       </div>
@@ -1239,7 +1186,7 @@
             <h2>To hlavní přehledně</h2>
           </div>
           <p>
-           Právě všechno ladíme k dokonalosti, ale tyhle základní informace už jsou pevně dané a můžete se na ně spolehnout.
+            Právě všechno ladíme k dokonalosti, ale tyhle základní informace už jsou pevně dané a můžete se na ně spolehnout.
           </p>
         </div>
 
@@ -1277,13 +1224,13 @@
           <div class="eyebrow">cena a rezervace</div>
           <h2>Jednoduchý způsob přihlášení</h2>
           <p>
-            Jakmile bude vše připravené, přihlašování bude probíhat formou formuláře Google. 
+            Jakmile bude vše připravené, přihlašování bude probíhat formou formuláře Google.
           </p>
           <div class="checklist">
             <div><strong>Cena:</strong> 4 000 Kč</div>
             <div><strong>Strava:</strong> Oběd (polévka + hlavní jídlo) a ovoce po celý den</div>
-            <div><strong>V ceně:</strong> Program, oběd, ovoce, vstupy na domluvené aktivity, příp. další specializovaný instruktor, půjčení paddleboardů, skateboardů  </div>
-            <div><strong>V ceně není:</strong> Doprava, svačina (děti si nosí vlastní), vlastní sportovní vybavení (kolo, chrániče aj.), kapesné (např. na zmrzku)  </div>
+            <div><strong>V ceně:</strong> Program, oběd, ovoce, vstupy na domluvené aktivity, příp. další specializovaný instruktor, půjčení paddleboardů, skateboardů</div>
+            <div><strong>V ceně není:</strong> Doprava, svačina (děti si nosí vlastní), vlastní sportovní vybavení (kolo, chrániče aj.), kapesné (např. na zmrzku)</div>
             <div><strong>Storno podmínky:</strong> Více než 21 dní před začátkem vracíme 100 % uhrazené částky / 7 - 21 dní před začátkem vracíme 40 % / méně než 7 dní před začátkem je storno poplatek 100 % (v případě zajištění náhradníka vracíme částku v plné výši)</div>
           </div>
         </div>
@@ -1312,7 +1259,7 @@
             <h2>Na co se rodiče ptají nejčastěji</h2>
           </div>
           <p>
-          Pokusíme se zodpovědět vše, co by vás mohlo zajímat.  
+            Pokusíme se zodpovědět vše, co by vás mohlo zajímat.
           </p>
         </div>
 
@@ -1332,21 +1279,21 @@
             <p>Základem tábora je venkovní program, ale vždy najdeme stín na odpočinek, nebo v případě nepřízně počasí zajistíme aktivity pod střechou.</p>
           </div>
 
-            <div class="faq-item paper-texture">
+          <div class="faq-item paper-texture">
             <h3>Co když bude celý týden pršet?</h3>
             <p>Tak zařídíme takový program, aby to přesto všechny bavilo! Můžeme vyrazit na SmíchOFF na lezeckou stěnu, pozveme instruktorku na lekci jógy, zahrajeme si ping pong, vytáhneme balanční hry aj. Pokud se nám podaří domluvit dost rodičů - řidičů, můžeme třeba i do zábavné gymnastické haly v Dobřichovicích apod.</p>
           </div>
 
- <div class="faq-item paper-texture">
+          <div class="faq-item paper-texture">
             <h3>Můžu být jako rodič na táboře přítomen?</h3>
-            <p>Ano, klidně. Jen je pro nás důležité, aby to nenarušilo fungování celé skupiny a děti se mohly přirozeně zapojit do programu. Máte těžší začátky? Můžete děti podpořit svou přítomností a pak se vzdálit podle potřeby vás i vašich dětí. </p>
+            <p>Ano, klidně. Jen je pro nás důležité, aby to nenarušilo fungování celé skupiny a děti se mohly přirozeně zapojit do programu. Máte těžší začátky? Můžete děti podpořit svou přítomností a pak se vzdálit podle potřeby vás i vašich dětí.</p>
           </div>
 
-            <div class="faq-item paper-texture">
+          <div class="faq-item paper-texture">
             <h3>Můžete zajistit bezlepkové obědy?</h3>
             <p>Bohužel, speciální diety standardně nezajišťujeme. Rádi se ale pokusíme najít řešení individuálně - např. formou vlastního jídla.</p>
           </div>
-          
+
           <div class="faq-item paper-texture">
             <h3>Můžu se zatím jen nezávazně ozvat?</h3>
             <p>Ano. Na začátku je to dokonce ideální. Rodič projeví předběžný zájem a dostane informace, jakmile bude spuštěno finální přihlašování.</p>
@@ -1366,37 +1313,39 @@
             </p>
           </div>
 
-<div>
-  <a class="button" href="mailto:hajek.stiburkova@gmail.com?subject=Mám%20zájem%20o%20příměstský%20tábor">
-    Napsat e-mail
-  </a>
+          <div>
+            <a class="button" href="mailto:hajek.stiburkova@gmail.com?subject=Mám%20zájem%20o%20příměstský%20tábor">
+              Napsat e-mail
+            </a>
 
-  <div style="height: 12px"></div>
+            <div style="height: 12px"></div>
 
-  <a class="button-outline" href="tel:+420730175315">
-    Zavolat
-  </a>
+            <a class="button-outline" href="tel:+420730175315">
+              Zavolat
+            </a>
 
-  <div style="height: 12px"></div>
+            <div style="height: 12px"></div>
 
-  <a class="button" href="https://forms.gle/jY1nZMZbPqREs3PYA" target="_blank">
-    Nezávazný zájem
-  </a>
+            <a class="button" href="https://forms.gle/jY1nZMZbPqREs3PYA" target="_blank">
+              Nezávazný zájem
+            </a>
 
-  <div class="checklist" style="margin-top: 20px;">
-    <div>nezávazný zájem</div>
-    <div>dotazy k programu</div>
-    <div>informace k místu a režimu dne</div>
-  </div>
-</div>
+            <div class="checklist" style="margin-top: 20px;">
+              <div>nezávazný zájem</div>
+              <div>dotazy k programu</div>
+              <div>informace k místu a režimu dne</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
     <div class="container footer-box">
-      <div>©Sportovní příměstský tábor V POHYBU V POHODĚ / Marie Hájek Stibůrková</div>
+      <div>© Sportovní příměstský tábor V POHYBU V POHODĚ / Marie Hájek Stibůrková</div>
       <div>stránka připravená pro <span class="strong">harradise.cz/primestak</span></div>
     </div>
   </footer>
 </body>
-</html> 
+</html>
