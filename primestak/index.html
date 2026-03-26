@@ -847,15 +847,17 @@ top: 260px;
         min-height: 420px;
         background-position: center top;
       }
+.hero-tag {
+  left: 14px;
+  right: 14px;
+  bottom: 92px;
 
-      .hero-tag {
-        left: 14px;
-        right: 14px;
-        bottom: 92px;
-        max-width: none;
-        font-size: 0.95rem;
-      }
+  max-width: 260px;      /* zmenší bublinu */
+  font-size: 0.9rem;     /* menší text */
+  line-height: 1.4;      /* lepší čitelnost */
 
+  padding: 10px 12px;    /* menší „nafouknutí“ */
+}
       .hero-badge {
         right: 14px;
         top: 14px;
@@ -1055,7 +1057,10 @@ top: 260px;
         <div class="panel paper-texture hero-card">
           <div class="hero-visual" aria-label="Dítě na kole">
             <div class="hero-badge">sportovní příměšťák</div>
-            <div class="hero-tag">Nové sporty, nové zážitky a pohodová parta</div>
+        <div class="hero-tag">
+  Nové sporty, nové zážitky<br>
+  a pohodová parta
+</div>
           </div>
         </div>
       </div>
