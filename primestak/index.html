@@ -803,12 +803,14 @@ top: 260px;
 
   display: grid;
   place-items: center;
+
+  color: #2c6e5b;
 }
 
 .external-icon svg {
   width: 22px;
   height: 22px;
-  stroke: var(--ink);
+  stroke: currentColor;
   stroke-width: 2.5;
   fill: none;
 }
@@ -1299,9 +1301,11 @@ top: 260px;
 
 <div class="external-note">
   <div class="external-icon">
-    <svg viewBox="0 0 64 64">
-      <circle cx="32" cy="24" r="10"></circle>
-      <path d="M14 52c2-10 12-14 18-14s16 4 18 14"></path>
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="22" cy="24" r="6"></circle>
+      <circle cx="42" cy="24" r="6"></circle>
+      <path d="M10 46c2-8 10-12 12-12s10 4 12 12"></path>
+      <path d="M30 46c2-8 10-12 12-12s10 4 12 12"></path>
     </svg>
   </div>
 
