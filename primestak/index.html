@@ -780,6 +780,39 @@ top: 260px;
   width: auto;
 }
 
+    .external-note {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+
+  padding: 18px;
+  border-radius: 20px;
+
+  background: rgba(223,241,238,0.6);
+  border: 1px solid rgba(36,79,103,0.08);
+}
+
+.external-icon {
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, var(--mint), #eef7f6);
+
+  display: grid;
+  place-items: center;
+}
+
+.external-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--ink);
+  stroke-width: 2.5;
+  fill: none;
+}
+
     @media (max-width: 980px) {
       .hero-grid,
       .cta-box,
@@ -1262,9 +1295,17 @@ top: 260px;
           <p>
             Obě tu budeme pro vaše děti, aby se nikdo nenudil, ale zároveň se necítil pod tlakem a nemusel dělat nic, v čem se necítí příjemně. Rády děti motivujeme, pomůžeme v začátcích, podpoříme v překračování výzev, ale dohlídneme na dobrou náladu a vnitřní klid. Moc si přejeme dětem nabídnout aktivní a přitom bezpečný společný čas, kde budou moci zkoušet nové věci, zažít radost z pohybu, tvoření i kamarádství a zároveň se cítit přijaté takové, jaké jsou.
           </p>
-          <div class="highlight-note">
-  Na některé aktivity si pozveme specializované instruktory, kteří daným sportem žijí. Třeba s pumptrackem pro větší děti v Masečíně nám pomůže bikerka Terka, která má zkušenosti s vedením dětských cyklo kroužků. Pokud bude ošklivo a vyrazíme zkusit lezení na SmíchOFF, zajistíme instruktora tam apod.
-        </div>
+          <div class="external-note">
+  <div class="external-icon">
+    <svg viewBox="0 0 64 64">
+      <circle cx="32" cy="24" r="10"></circle>
+      <path d="M14 52c2-10 12-14 18-14s16 4 18 14"></path>
+    </svg>
+  </div>
+
+  <div>
+    Na některé aktivity si pozveme specializované instruktory, kteří daným sportem žijí. Třeba s pumptrackem pro větší děti v Masečíně nám pomůže bikerka Terka, která má zkušenosti s vedením dětských cyklo kroužků. Pokud bude ošklivo a vyrazíme zkusit lezení na SmíchOFF, zajistíme instruktora tam apod.
+  </div>
       </div>
     </section>
 
