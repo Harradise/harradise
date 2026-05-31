@@ -14,10 +14,11 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(125, 211, 252, 0.35), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.22), transparent 36%),
-        linear-gradient(180deg, #eaf8ff 0%, #dff4fb 100%);
-      color: #1f2933;
+        radial-gradient(circle at 12% 10%, rgba(34, 211, 238, 0.42), transparent 30%),
+        radial-gradient(circle at 88% 18%, rgba(59, 130, 246, 0.22), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(20, 184, 166, 0.28), transparent 38%),
+        linear-gradient(135deg, #d9f6ff 0%, #eefcff 48%, #c7f0ff 100%);
+      color: #123044;
     }
 
     .page {
@@ -31,28 +32,32 @@
     .card {
       width: 100%;
       max-width: 980px;
-      background: rgba(255, 255, 255, 0.86);
-      border-radius: 32px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(246,253,255,0.86));
+      border-radius: 34px;
       padding: 38px 36px;
       text-align: center;
-      box-shadow: 0 24px 70px rgba(2, 132, 199, 0.14);
-      border: 1px solid rgba(56, 189, 248, 0.28);
-      backdrop-filter: blur(10px);
+      box-shadow:
+        0 28px 80px rgba(2, 74, 115, 0.18),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+      border: 1px solid rgba(14, 165, 233, 0.32);
+      backdrop-filter: blur(14px);
     }
 
     .logo {
       width: 74px;
       height: 74px;
       margin: 0 auto 18px;
-      color: #0284c7;
+      color: #0277bd;
+      filter: drop-shadow(0 10px 18px rgba(2, 119, 189, 0.18));
     }
 
     h1 {
       margin: 0;
       font-size: clamp(1.9rem, 5vw, 3.6rem);
       line-height: 1.02;
-      letter-spacing: -0.04em;
-      color: #0f2f44;
+      letter-spacing: -0.045em;
+      color: #07364f;
     }
 
     .subtitle {
@@ -60,34 +65,48 @@
       max-width: 620px;
       font-size: 1.25rem;
       line-height: 1.6;
-      color: #3f5f73;
+      color: #315a70;
     }
 
     .promo-banner {
-  max-width: 760px;
-  margin: -8px auto 24px;
-  padding: 18px 22px;
-  border-radius: 24px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(232, 248, 255, 0.92));
-  border: 1px solid rgba(14, 165, 233, 0.28);
-  box-shadow: 0 14px 34px rgba(2, 132, 199, 0.10);
-  color: #075985;
-}
+      max-width: 760px;
+      margin: -8px auto 24px;
+      padding: 18px 22px;
+      border-radius: 26px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(219, 244, 255, 0.95));
+      border: 1px solid rgba(14, 165, 233, 0.45);
+      box-shadow:
+        0 18px 38px rgba(2, 132, 199, 0.14),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+      color: #075985;
+      position: relative;
+      overflow: hidden;
+    }
 
-.promo-banner strong {
-  display: block;
-  font-size: clamp(1.25rem, 3vw, 1.9rem);
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
+    .promo-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(14,165,233,0.12), transparent 42%, rgba(20,184,166,0.12));
+      pointer-events: none;
+    }
 
-.promo-banner span {
-  display: block;
-  margin-top: 5px;
-  font-size: 1rem;
-  color: #3f5f73;
-}
+    .promo-banner strong {
+      display: block;
+      font-size: clamp(1.25rem, 3vw, 1.9rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      position: relative;
+    }
+
+    .promo-banner span {
+      display: block;
+      margin-top: 5px;
+      font-size: 1rem;
+      color: #315a70;
+      position: relative;
+    }
 
     .locations {
       display: grid;
@@ -100,26 +119,28 @@
 
     .location {
       padding: 22px;
-      border-radius: 22px;
+      border-radius: 24px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(239, 249, 253, 0.84));
-      border: 1px solid rgba(125, 211, 252, 0.42);
-      box-shadow: 0 10px 28px rgba(2, 132, 199, 0.07);
+        linear-gradient(160deg, rgba(255,255,255,0.96), rgba(224,247,255,0.82));
+      border: 1px solid rgba(56, 189, 248, 0.48);
+      box-shadow:
+        0 12px 30px rgba(2, 132, 199, 0.10),
+        inset 0 1px 0 rgba(255,255,255,0.95);
     }
 
     .location strong {
       display: block;
       font-size: 1.15rem;
       margin-bottom: 6px;
-      color: #075985;
-      letter-spacing: 0.02em;
+      color: #0369a1;
+      letter-spacing: 0.03em;
     }
 
     .location span {
       display: block;
       font-size: 0.95rem;
       line-height: 1.45;
-      color: #45677a;
+      color: #3d6175;
     }
 
     .highlight {
@@ -134,7 +155,7 @@
     .extra-info {
       margin: -6px auto 22px;
       font-size: 1.05rem;
-      color: #3f5f73;
+      color: #315a70;
       line-height: 1.5;
     }
 
@@ -142,12 +163,13 @@
       margin: 0 auto 32px;
       max-width: 560px;
       padding: 18px 22px;
-      border-radius: 20px;
-      background: #fff7ed;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #fff7ed, #fffaf4);
       color: #9a3412;
       font-size: 1.05rem;
       line-height: 1.6;
       border: 1px solid #fed7aa;
+      box-shadow: 0 10px 24px rgba(154, 52, 18, 0.08);
     }
 
     .contact {
@@ -155,23 +177,35 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 16px 24px;
+      padding: 16px 26px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #0284c7, #0ea5e9);
+      background: #25D366;
       color: white;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 1.05rem;
-      box-shadow: 0 12px 28px rgba(14, 165, 233, 0.28);
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.34);
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .contact:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(37, 211, 102, 0.42);
     }
 
     .small {
       margin-top: 22px;
       font-size: 0.95rem;
-      color: #6b8ca1;
+      color: #5f8498;
     }
 
     @media (max-width: 720px) {
+      .page {
+        padding: 24px 14px;
+      }
+
       .card {
         padding: 34px 22px;
         border-radius: 26px;
@@ -218,12 +252,12 @@
         Paddleboardy, rodinné výlety, plavby s partou přátel i zážitky s průvodcem v okolí Davle, Štěchovic a Slap.
       </p>
 
-<div class="promo-banner">
-  <div>
-    <strong>DÁMSKÁ JÍZDA</strong>
-    <span>Láhev prosecca v ceně · od 490 Kč/os.</span>
-  </div>
-</div>
+      <div class="promo-banner">
+        <div>
+          <strong>DÁMSKÁ JÍZDA</strong>
+          <span>Láhev prosecca v ceně · od 490 Kč/os.</span>
+        </div>
+      </div>
       
       <div class="locations">
         <div class="location">
