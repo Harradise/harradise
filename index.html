@@ -74,6 +74,10 @@
       color: inherit;
     }
 
+    button {
+      font-family: inherit;
+    }
+
     .container {
       width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
@@ -211,6 +215,9 @@
       text-decoration: none;
       font-weight: 750;
       transition: .15s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
     }
 
     .button-primary {
@@ -687,6 +694,36 @@
       text-underline-offset: 3px;
     }
 
+    .footer-contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 9px 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: white;
+      color: var(--text);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 650;
+      text-decoration: none;
+      cursor: pointer;
+      transition: .15s ease;
+    }
+
+    .contact-link:hover {
+      background: var(--bg-soft);
+      text-decoration: none;
+    }
+
     .copyright {
       padding-top: 25px;
       border-top: 1px solid var(--line);
@@ -829,6 +866,11 @@
         grid-template-columns: 1fr;
       }
 
+      .footer-contact-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
     }
 
   </style>
@@ -845,7 +887,6 @@
   <header class="topbar">
     <div class="container topbar-inner">
 
-      <!-- Pokud se logo jmenuje jinak, uprav src -->
       <a href="#top" aria-label="Harradise – domů">
         <img src="logo.png"
              alt="Harradise Harrachov"
@@ -881,10 +922,6 @@
 
       <div class="container">
 
-        <!--
-          SEM PAK DÁME NOVOU HLAVNÍ FOTKU.
-          Zatím používám jednu z tvých současných.
-        -->
         <img
           src="images/IMG_20210527_154538~2.jpg"
           alt="Apartmán Harradise v Harrachově"
@@ -922,10 +959,12 @@
               Zkontrolovat volný termín
             </a>
 
-            <a class="button button-secondary"
-               href="mailto:hajek.stiburkova@gmail.com">
+            <button
+              type="button"
+              class="button button-secondary"
+              onclick="writeToUs()">
               Napsat nám napřímo
-            </a>
+            </button>
 
           </div>
 
@@ -1012,12 +1051,6 @@
                 src="images/20250415_161024~2.jpg"
                 alt="Okolí Harradise">
             </div>
-
-            <!--
-              ZATÍM jsou dvě fotky zopakované.
-              Až mi pošleš další názvy souborů,
-              vyměníme je.
-            -->
 
             <div class="gallery-small">
               <img
@@ -1192,11 +1225,6 @@
 
         <div class="split-photo">
 
-          <!--
-            SEM POZDĚJI IDEÁLNĚ FOTKU DĚTSKÉHO VYBAVENÍ
-            NEBO PĚKNOU FOTKU INTERIÉRU
-          -->
-
           <img
             src="images/IMG_20210527_154538~2.jpg"
             alt="Rodinné ubytování Harradise">
@@ -1224,11 +1252,6 @@
             <li>pračka a sušička přímo v apartmánu</li>
             <li>zahrada za domem</li>
           </ul>
-
-          <!--
-            SEM DOPLNÍME VŠECHNO, CO TAM OPRAVDU MÁTE:
-            nočník, stupátko, hračky, knihy, vaničku...
-          -->
 
         </div>
 
@@ -1339,7 +1362,6 @@
 
           <div class="season-card">
 
-            <!-- ZATÍM NÁHRADNÍ FOTKA -->
             <img
               src="images/20250415_161024~2.jpg"
               alt="Zima v Harrachově">
@@ -1360,7 +1382,6 @@
 
           <div class="season-card">
 
-            <!-- ZATÍM NÁHRADNÍ FOTKA -->
             <img
               src="images/IMG_20210527_154538~2.jpg"
               alt="Léto v Harrachově">
@@ -1411,10 +1432,6 @@
 
         <div class="reviews-grid">
 
-          <!--
-            TYTO TEXTY JSOU ZÁMĚRNĚ ZATÍM PLACEHOLDERY.
-            SEM PAK VLOŽÍME 3 SKUTEČNÉ RECENZE Z BOOKINGU.
-          -->
 
           <article class="review">
 
@@ -1508,10 +1525,12 @@
             Zkontrolovat volný termín
           </a>
 
-          <a class="button button-secondary"
-             href="mailto:hajek.stiburkova@gmail.com">
+          <button
+            type="button"
+            class="button button-secondary"
+            onclick="writeToUs()">
             Napsat nám
-          </a>
+          </button>
 
         </div>
 
@@ -1579,16 +1598,26 @@
           <h3>Kontakt</h3>
 
           <p>
-            <a href="tel:+420604192879">
-              +420 604 192 879
-            </a>
+            Máte dotaz k pobytu nebo chcete rezervovat napřímo?
           </p>
 
-          <p>
-            <a href="mailto:hajek.stiburkova@gmail.com">
-              hajek.stiburkova@gmail.com
-            </a>
-          </p>
+          <div class="footer-contact-buttons">
+
+            <button
+              type="button"
+              class="contact-link"
+              onclick="writeToUs()">
+              ✉ Napsat nám
+            </button>
+
+            <button
+              type="button"
+              class="contact-link"
+              onclick="callUs()">
+              ☎ Zavolat nám
+            </button>
+
+          </div>
 
         </div>
 
@@ -1627,8 +1656,44 @@
 
   <script>
 
+    /* Aktuální rok */
     document.getElementById("year").textContent =
       new Date().getFullYear();
+
+
+    /*
+      E-mail není uložen jako celá adresa v HTML.
+      Složí se až v prohlížeči po kliknutí.
+    */
+    function writeToUs() {
+      const namePart = "hajek.stiburkova";
+      const domainPart = "gmail";
+      const endingPart = "com";
+
+      const address =
+        namePart + "@" + domainPart + "." + endingPart;
+
+      window.location.href =
+        "mai" + "lto:" + address;
+    }
+
+
+    /*
+      Telefon se návštěvníkovi nikde nevypisuje.
+      Po kliknutí na tlačítko se otevře vytáčení.
+    */
+    function callUs() {
+      const country = "+420";
+      const first = "604";
+      const second = "192";
+      const third = "879";
+
+      const phone =
+        country + first + second + third;
+
+      window.location.href =
+        "te" + "l:" + phone;
+    }
 
   </script>
 
