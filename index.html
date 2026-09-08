@@ -1,267 +1,1638 @@
+```html
 <!DOCTYPE html>
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Harradise Harrachov – apartmán u Mumlavského vodopádu</title>
-  <meta name="description" content="Plně vybavený apartmán (nejen) pro rodiny v Harrachově pod Mumlavským vodopádem. Klidná poloha, turistika, zahrada s ohništěm.">
-  <!-- Open Graph pro sdílení -->
+
+  <title>Harradise Harrachov – apartmán pod Mumlavským vodopádem</title>
+
+  <meta name="description"
+        content="Klidný, plně vybavený apartmán v Harrachově pod Mumlavským vodopádem. Ideální pro rodiny, páry, běžkaře, lyžaře i milovníky hor. Zahrada, parkování a skvělá poloha u lesa.">
+
   <meta property="og:title" content="Harradise Harrachov">
-  <meta property="og:description" content="Plně vybavený apartmán (nejen) pro rodiny v Harrachově pod Mumlavským vodopádem.">
+  <meta property="og:description"
+        content="Klidný apartmán pod Mumlavským vodopádem. Hory, zahrada, vybavení pro děti a Harrachov na dosah.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.harradise.cz/">
+
   <style>
-    :root{
-      --bg:#ffffff;
-      --text:#1f2937;     /* tmavě šedá */
-      --muted:#6b7280;    /* šedá na sekundární text */
-      --brand:#d10000;    /* červená pro CTA */
-      --brand-soft:#ffecec;
-      --card:#f8fafc;     /* světle šedé pozadí karet */
-      .insta-pill-section{
-  margin:32px 0;
-  text-align:center;
-}
-.insta-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 18px;
-  border-radius:999px;
-  border:1px solid #d1d5db;
-  background:#ffffff;
-  font-size:15px;
-  color:#374151;
-  text-decoration:none;
-  box-shadow:0 4px 12px rgba(0,0,0,0.04);
-  opacity:.96;
-  transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease;
-}
-.insta-pill:hover{
-  transform:translateY(-1px);
-  box-shadow:0 6px 20px rgba(0,0,0,0.08);
-  opacity:1;
-}
-.insta-pill svg{flex-shrink:0;}
-      --ring:rgba(0,0,0,0.08);
-      --radius:18px;
-      --shadow:0 6px 24px rgba(0,0,0,.08);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; background:var(--bg); color:var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      line-height:1.55;
-    }
-    a{color:var(--brand); text-underline-offset:3px}
-    header, main, footer{padding:24px}
-    .container{max-width:960px; margin:0 auto}
 
-    /* HERO */
-    .notice{
-      border:2px solid var(--brand);
-      background:var(--brand-soft);
-      padding:16px;
-      border-radius:var(--radius);
-      text-align:center;
-      margin:18px auto 28px;
-      box-shadow:var(--shadow);
-    }
-    .notice a{font-weight:700}
-    .logo{
-      width:150px; height:auto; display:block; margin:0 auto 16px;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,.08));
-    }
-    .title{font-size:clamp(28px,4vw,42px); text-align:center; margin:8px 0}
-    .subtitle{color:var(--muted); text-align:center; margin-top:6px; margin-bottom:22px}
-    .lead{font-size:18px; text-align:center; margin:0 auto 18px; max-width:42ch}
-    .cta{
-      display:inline-block; background:var(--brand); color:#fff; text-decoration:none; font-weight:700;
-      padding:12px 18px; border-radius:999px; box-shadow:var(--shadow);
-      transition:transform .06s ease-in-out;
-    }
-    .cta:hover{transform:translateY(-1px)}
-    .stack-center{display:flex; flex-direction:column; align-items:center}
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f6f5f2;
+      --bg-warm: #f3f0eb;
 
-    /* FEATURES */
- .card{
-  background:#f5f9ff;              /* velmi světlá modrá */
-  border:1px solid #cddff7;        /* jemný modrý rámeček */
-  border-radius:var(--radius);
-  padding:20px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.05);
-}
-    ul.features{
-      list-style: disc; padding-left:22px; margin:0;
-      font-size:18px; line-height:1.6;
-    }
-    .grid{
-      display:grid; gap:18px;
-      grid-template-columns:1fr;
-    }
-    @media (min-width:720px){
-      .grid{grid-template-columns:1fr 1fr}
+      --text: #252525;
+      --muted: #6f706d;
+
+      --brand: #b3261e;
+      --brand-dark: #921c17;
+      --brand-soft: #f8eae8;
+
+      --green: #3d5144;
+      --green-soft: #edf1ed;
+
+      --line: #e5e3df;
+
+      --radius-small: 14px;
+      --radius: 22px;
+      --radius-large: 30px;
+
+      --shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
     }
 
-    /* GALLERY */
-    .gallery{
-      display:grid; gap:14px; margin-top:8px;
-      grid-template-columns:1fr 1fr;
-    }
-    @media (min-width:720px){
-      .gallery{grid-template-columns:repeat(3,1fr)}
-    }
-    .thumb{
-      aspect-ratio: 4 / 3; width:100%; border-radius:14px; object-fit:cover; background:#e5e7eb;
-      box-shadow:var(--shadow);
-    }
-    .placeholder{
-      display:flex; align-items:center; justify-content:center; color:#9ca3af; font-size:14px; background:#eef2f7;
-      border:1px dashed #cbd5e1;
+    * {
+      box-sizing: border-box;
     }
 
-    /* SECTIONS */
-    section{margin:12px 0}
-    h3{margin:0 0 12px; font-size:22px}
-    .center{text-align:center}
-
-    footer{
-      margin-top:40px; border-top:1px solid #e5e7eb; padding-top:24px; color:var(--muted);
-      font-size:14px; text-align:center;
+    html {
+      scroll-behavior: smooth;
     }
-    /* Mobilní styl – necháme obrázek tak, jak je */
-.hero-img {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
-}
 
-/* Desktop verze – zmenší hero banner */
-@media (min-width: 768px) {
-  .hero-img {
-    max-height: 550px;
-    object-fit: cover;
-  }
-}
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .topbar {
+      position: relative;
+      z-index: 10;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      width: 88px;
+      height: auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .nav a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .nav-book {
+      padding: 9px 15px;
+      border: 1px solid var(--brand);
+      border-radius: 999px;
+      color: var(--brand) !important;
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      padding: 28px 0 58px;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: min(64vw, 610px);
+      min-height: 390px;
+      object-fit: cover;
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-content {
+      width: min(850px, 100%);
+      margin: 38px auto 0;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 6vw, 65px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      font-weight: 780;
+    }
+
+    .hero-lead {
+      max-width: 700px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.2vw, 22px);
+    }
+
+    .benefit-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 28px 0;
+    }
+
+    .benefit-pill {
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 25px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 750;
+      transition: .15s ease;
+    }
+
+    .button-primary {
+      background: var(--brand);
+      color: white;
+      box-shadow: 0 7px 20px rgba(179,38,30,.22);
+    }
+
+    .button-primary:hover {
+      background: var(--brand-dark);
+      transform: translateY(-1px);
+    }
+
+    .button-secondary {
+      border: 1px solid #ccc8c1;
+      background: white;
+      color: var(--text);
+    }
+
+    .button-secondary:hover {
+      background: var(--bg-soft);
+    }
+
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-soft {
+      background: var(--bg-soft);
+    }
+
+    .section-warm {
+      background: var(--bg-warm);
+    }
+
+    .section-green {
+      background: var(--green);
+      color: white;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 38px;
+    }
+
+    .section-header.centered {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0 0 15px;
+      font-size: clamp(30px, 4.5vw, 46px);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    h3 {
+      margin: 0 0 9px;
+      font-size: 20px;
+      line-height: 1.25;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+
+    /* =========================
+       RATING
+    ========================= */
+
+    .rating-wrap {
+      padding-top: 0;
+    }
+
+    .rating-card {
+      padding: 30px;
+      background: var(--green);
+      color: white;
+      border-radius: var(--radius);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .rating-score {
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .rating-copy strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 18px;
+    }
+
+    .rating-copy span {
+      opacity: .8;
+      font-size: 14px;
+    }
+
+    .stars {
+      font-size: 20px;
+      letter-spacing: 3px;
+      white-space: nowrap;
+    }
+
+
+    /* =========================
+       GALLERY
+    ========================= */
+
+    .gallery-main {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 10px;
+      height: 560px;
+    }
+
+    .gallery-large,
+    .gallery-small {
+      overflow: hidden;
+      border-radius: var(--radius-small);
+      background: #ddd;
+    }
+
+    .gallery-large img,
+    .gallery-small img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .3s ease;
+    }
+
+    .gallery-large:hover img,
+    .gallery-small:hover img {
+      transform: scale(1.015);
+    }
+
+    .gallery-side {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .gallery-small {
+      position: relative;
+    }
+
+    .gallery-more {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.42);
+      color: white;
+      font-size: 18px;
+      font-weight: 750;
+    }
+
+
+    /* =========================
+       BENEFITS
+    ========================= */
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .benefit-card {
+      min-height: 205px;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+    }
+
+    .benefit-icon {
+      margin-bottom: 20px;
+      font-size: 30px;
+    }
+
+    .benefit-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       TWO COLUMN CONTENT
+    ========================= */
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .split.reverse .split-photo {
+      order: 2;
+    }
+
+    .split-photo img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: var(--radius-large);
+    }
+
+    .split-copy {
+      max-width: 520px;
+    }
+
+    .clean-list {
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .clean-list li {
+      position: relative;
+      padding: 9px 0 9px 28px;
+      border-bottom: 1px solid rgba(100,100,100,.12);
+    }
+
+    .clean-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+
+    /* =========================
+       LOCATION
+    ========================= */
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 35px;
+    }
+
+    .distance-card {
+      padding: 25px 18px;
+      text-align: center;
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+    }
+
+    .distance-big {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 31px;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .distance-label {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       SEASONS
+    ========================= */
+
+    .season-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .season-card {
+      min-height: 480px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-large);
+      color: white;
+      background: #555;
+    }
+
+    .season-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,.72) 0%,
+          rgba(0,0,0,.15) 65%
+        );
+      z-index: 1;
+    }
+
+    .season-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .season-content {
+      position: relative;
+      z-index: 2;
+      max-width: 430px;
+    }
+
+    .season-content h3 {
+      font-size: 31px;
+    }
+
+    .season-content p {
+      margin: 0;
+      opacity: .92;
+    }
+
+
+    /* =========================
+       REVIEWS
+    ========================= */
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .review {
+      padding: 27px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .review-stars {
+      margin-bottom: 13px;
+      letter-spacing: 2px;
+    }
+
+    .review p {
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    .review-name {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .final-cta {
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      color: white;
+    }
+
+    .final-cta p {
+      max-width: 620px;
+      margin: 0 auto 25px;
+      opacity: .85;
+      font-size: 18px;
+    }
+
+    .section-green .button-secondary {
+      color: white;
+      border-color: rgba(255,255,255,.4);
+      background: transparent;
+    }
+
+    .section-green .button-secondary:hover {
+      background: rgba(255,255,255,.08);
+    }
+
+
+    /* =========================
+       INSTAGRAM
+    ========================= */
+
+    .instagram {
+      padding: 38px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .insta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 17px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-weight: 650;
+      font-size: 14px;
+    }
+
+    .insta-link:hover {
+      background: var(--bg-soft);
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 55px 0 35px;
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 35px;
+    }
+
+    .footer-logo {
+      width: 95px;
+      margin-bottom: 17px;
+    }
+
+    footer h3 {
+      color: var(--text);
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    footer a:hover {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .copyright {
+      padding-top: 25px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 13px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .nav a:not(.nav-book) {
+        display: none;
+      }
+
+      .topbar-inner {
+        min-height: 65px;
+      }
+
+      .logo {
+        width: 74px;
+      }
+
+      .hero {
+        padding-top: 18px;
+      }
+
+      .hero-photo {
+        min-height: 370px;
+        height: 67vh;
+        max-height: 580px;
+      }
+
+      .rating-card {
+        grid-template-columns: auto 1fr;
+      }
+
+      .stars {
+        display: none;
+      }
+
+      .gallery-main {
+        height: auto;
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-large {
+        height: 390px;
+      }
+
+      .gallery-side {
+        height: 330px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .split,
+      .split.reverse {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .split.reverse .split-photo {
+        order: initial;
+      }
+
+      .split-photo img {
+        height: 390px;
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 580px) {
+
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .hero-content {
+        margin-top: 28px;
+      }
+
+      .hero-photo {
+        min-height: 330px;
+        height: 56vh;
+        border-radius: 20px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit-card {
+        min-height: 0;
+      }
+
+      .gallery-large {
+        height: 320px;
+      }
+
+      .gallery-side {
+        height: 270px;
+      }
+
+      .location-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .season-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .season-card {
+        min-height: 430px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
   </style>
 </head>
+
+
 <body>
-  <header>
-    <div class="container">
-      <!-- zvýrazněná informace nahoře -->
-<div class="notice">
-  <strong>Na webu se pracuje.</strong><br>
-  Nenašli jste vše nebo chcete slevu?
-  <a href="mailto:hajek.stiburkova@gmail.com">Napište nám</a>.
-</div>
 
-<!-- HERO BANNER -->
-<section style="text-align: center; margin-bottom: 40px;">
-  <img src="Hero.png" 
-       alt="Harradise Harrachov – Vaše ubytování v Krkonoších"
-       class="hero-img"
-       style="width: 100%; height: auto; border-radius: 20px;">
-</section>
 
-      <div class="stack-center" style="margin-bottom: 28px;">
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-<p class="lead" style="font-size: 22px;">
-  Plně vybavený apartmán (nejen) pro rodiny pod&nbsp;Mumlavským&nbsp;vodopádem
-</p>
+  <header class="topbar">
+    <div class="container topbar-inner">
 
-  <a class="cta" href="https://www.booking.com/Share-Pz2DesE" target="_blank" rel="noopener">
-    Rezervujte si svůj pobyt tady
-  </a>
-</div>
-<main class="container">
-    <!-- Výhody -->
-    <section class="card">
-      <h3>Proč se ubytovat u nás</h3>
-      <ul class="features">
-        <li>Ideální výchozí bod na běžky a skialpy, 200 m od stop</li>
-        <li>Skiareál Harrachov nedaleko, zastávka skibusu 300 m</li>
-        <li>Plně vybavený apartmán, vč. myčky, pračky se sušičkou a kompletního vybavení pro děti</li>
-        <li>Velmi klidná poloha nedaleko centra</li>
-        <li>Velká zahrada za domem na dělání sněhuláků a řádění na sněhu</li>
-        <li>Velkolepá příroda všude kolem</li>
-      </ul>
-    </section>
-
-    <!-- Instagram – decentní kapslové tlačítko nad fotkami -->
-    <section class="insta-pill-section">
-      <a class="insta-pill"
-         href="https://www.instagram.com/harradise__?igsh=YjZlN2Exb2hsOXpp"
-         target="_blank"
-         rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width="18" height="18"
-             viewBox="0 0 24 24"
-             fill="#6b7280">
-          <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3c-2.757 0-5 2.243-5 5s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm0 2c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3zm4.5-.75a1.25 1.25 0 11-.001 2.501A1.25 1.25 0 0116.5 8.25z"/>
-        </svg>
-        <span>Sledujte nás na Instagramu</span>
+      <!-- Pokud se logo jmenuje jinak, uprav src -->
+      <a href="#top" aria-label="Harradise – domů">
+        <img src="logo.png"
+             alt="Harradise Harrachov"
+             class="logo">
       </a>
-    </section>
 
-    <!-- Galerie – zatím zástupné náhledy; vyměň src za tvé fotky -->
-    <section>
-      <h3 class="center">Fotky</h3>
-      <div class="gallery">
-        <img class="thumb" src="images/IMG_20210527_154538~2.jpg" alt="Apartmán – obývací pokoj">
-        <img class="thumb" src="images/20241123_101905(1).jpg" alt="Apartmán – ložnice">
-        <img class="thumb" src="images/20250415_161024~2.jpg" alt="Pohled na okolí Harrachova">
+      <nav class="nav">
+        <a href="#apartman">Apartmán</a>
+        <a href="#galerie">Fotky</a>
+        <a href="#lokalita">Lokalita</a>
+        <a href="#recenze">Recenze</a>
+
+        <a class="nav-book"
+           href="https://www.booking.com/Share-Pz2DesE"
+           target="_blank"
+           rel="noopener">
+          Rezervovat
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main id="top">
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <!--
+          SEM PAK DÁME NOVOU HLAVNÍ FOTKU.
+          Zatím používám jednu z tvých současných.
+        -->
+        <img
+          src="images/IMG_20210527_154538~2.jpg"
+          alt="Apartmán Harradise v Harrachově"
+          class="hero-photo">
+
+        <div class="hero-content">
+
+          <p class="eyebrow">
+            Harrachov · Krkonoše
+          </p>
+
+          <h1>
+            V Harrachově.<br>
+            A přitom skoro v lese.
+          </h1>
+
+          <p class="hero-lead">
+            Klidný a plně vybavený apartmán pod Mumlavským vodopádem
+            pro rodiny, páry i všechny, kdo chtějí mít hory hned za dveřmi.
+          </p>
+
+          <div class="benefit-pills">
+            <span class="benefit-pill">200 m od běžeckých stop</span>
+            <span class="benefit-pill">zahrada</span>
+            <span class="benefit-pill">vlastní parkování</span>
+            <span class="benefit-pill">vybavení pro děti</span>
+          </div>
+
+          <div class="buttons">
+
+            <a class="button button-primary"
+               href="https://www.booking.com/Share-Pz2DesE"
+               target="_blank"
+               rel="noopener">
+              Zkontrolovat volný termín
+            </a>
+
+            <a class="button button-secondary"
+               href="mailto:hajek.stiburkova@gmail.com">
+              Napsat nám napřímo
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
+
     </section>
 
 
-    <!-- Informace o apartmánu – můžeš postupně rozšířit -->
-    <section class="card">
-      <h3>O apartmánu</h3>
-      <p>
-        Klidná poloha v pěším dosahu centra, přímo u stezek k Mumlavskému vodopádu.
-        Soukromé parkování, plně vybavená kuchyň, vybavení pro děti, zahrada a vlastní parkovací místo.
-      </p>
+    <!-- =========================
+         BOOKING RATING
+    ========================== -->
+
+    <section class="rating-wrap">
+
+      <div class="container">
+
+        <div class="rating-card">
+
+          <div class="rating-score">
+            9,7
+          </div>
+
+          <div class="rating-copy">
+            <strong>Výjimečné hodnocení hostů</strong>
+            <span>na Booking.com</span>
+          </div>
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
+
+
+    <!-- =========================
+         GALLERY
+    ========================== -->
+
+    <section id="galerie">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <p class="eyebrow">Harradise zblízka</p>
+
+          <h2>
+            Prohlédněte si apartmán
+          </h2>
+
+          <p class="section-intro">
+            Místo, kde máte po návratu z hor klid, pohodlí
+            a všechno, co potřebujete.
+          </p>
+
+        </div>
+
+
+        <div class="gallery-main">
+
+          <div class="gallery-large">
+            <img
+              src="images/IMG_20210527_154538~2.jpg"
+              alt="Obývací část apartmánu Harradise">
+          </div>
+
+
+          <div class="gallery-side">
+
+            <div class="gallery-small">
+              <img
+                src="images/20241123_101905(1).jpg"
+                alt="Ložnice apartmánu">
+            </div>
+
+            <div class="gallery-small">
+              <img
+                src="images/20250415_161024~2.jpg"
+                alt="Okolí Harradise">
+            </div>
+
+            <!--
+              ZATÍM jsou dvě fotky zopakované.
+              Až mi pošleš další názvy souborů,
+              vyměníme je.
+            -->
+
+            <div class="gallery-small">
+              <img
+                src="images/IMG_20210527_154538~2.jpg"
+                alt="Interiér Harradise">
+            </div>
+
+            <div class="gallery-small">
+
+              <img
+                src="images/20241123_101905(1).jpg"
+                alt="Apartmán Harradise">
+
+              <div class="gallery-more">
+                Více fotografií brzy
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BENEFITS
+    ========================== -->
+
+    <section class="section-soft">
+
+      <div class="container">
+
+        <div class="section-header centered">
+
+          <p class="eyebrow">Proč Harradise</p>
+
+          <h2>
+            Hory hned za dveřmi.<br>
+            Pohodlí uvnitř.
+          </h2>
+
+        </div>
+
+
+        <div class="benefits-grid">
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🌲</div>
+            <h3>Přímo u lesa</h3>
+            <p>
+              Na výlet podél Mumlavy můžete vyrazit rovnou od domu.
+              Žádné každodenní přejíždění autem.
+            </p>
+          </div>
+
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🎿</div>
+            <h3>200 m od běžeckých stop</h3>
+            <p>
+              Výborné místo pro běžkaře i skialpinisty.
+              Skibus staví přibližně 300 metrů od domu.
+            </p>
+          </div>
+
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🏡</div>
+            <h3>Klidná část Harrachova</h3>
+            <p>
+              Bydlíte mimo největší ruch, ale centrum a služby
+              máte stále pohodlně na dosah.
+            </p>
+          </div>
+
+
+          <div class="benefit-card">
+            <div class="benefit-icon">👨‍👩‍👧</div>
+            <h3>Opravdu pro rodiny</h3>
+            <p>
+              Mysleli jsme i na věci, které s dětmi jinak zabírají
+              polovinu zavazadlového prostoru.
+            </p>
+          </div>
+
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🌿</div>
+            <h3>Velká zahrada</h3>
+            <p>
+              V zimě na sněhuláky a řádění ve sněhu,
+              v létě na odpočinek a večer u ohně.
+            </p>
+          </div>
+
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🚗</div>
+            <h3>Vlastní parkování</h3>
+            <p>
+              Auto můžete nechat u domu a řadu výletů
+              i aktivit zvládnout bez něj.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         APARTMENT
+    ========================== -->
+
+    <section id="apartman">
+
+      <div class="container split">
+
+        <div class="split-photo">
+
+          <img
+            src="images/20241123_101905(1).jpg"
+            alt="Interiér apartmánu Harradise">
+
+        </div>
+
+
+        <div class="split-copy">
+
+          <p class="eyebrow">Apartmán</p>
+
+          <h2>
+            Ať se po horách máte kam rádi vracet
+          </h2>
+
+          <p class="section-intro">
+            Harradise jsme vybavili tak, aby se v něm pohodlně žilo,
+            ne jen přespávalo.
+          </p>
+
+          <ul class="clean-list">
+            <li>plně vybavená kuchyň s myčkou</li>
+            <li>pračka se sušičkou</li>
+            <li>pohodlné zázemí pro delší pobyt</li>
+            <li>vybavení pro děti</li>
+            <li>Wi-Fi</li>
+            <li>vlastní parkovací místo</li>
+            <li>velká zahrada za domem</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAMILY
+    ========================== -->
+
+    <section class="section-warm">
+
+      <div class="container split reverse">
+
+
+        <div class="split-photo">
+
+          <!--
+            SEM POZDĚJI IDEÁLNĚ FOTKU DĚTSKÉHO VYBAVENÍ
+            NEBO PĚKNOU FOTKU INTERIÉRU
+          -->
+
+          <img
+            src="images/IMG_20210527_154538~2.jpg"
+            alt="Rodinné ubytování Harradise">
+
+        </div>
+
+
+        <div class="split-copy">
+
+          <p class="eyebrow">S dětmi</p>
+
+          <h2>
+            Bez půlky domácnosti v kufru
+          </h2>
+
+          <p class="section-intro">
+            Sami víme, kolik věcí se běžně balí na pár dní s dětmi.
+            Proto se snažíme, aby část z nich mohla zůstat doma.
+          </p>
+
+          <ul class="clean-list">
+            <li>dětská postýlka</li>
+            <li>dětská jídelní židlička</li>
+            <li>dětské nádobí</li>
+            <li>pračka a sušička přímo v apartmánu</li>
+            <li>zahrada za domem</li>
+          </ul>
+
+          <!--
+            SEM DOPLNÍME VŠECHNO, CO TAM OPRAVDU MÁTE:
+            nočník, stupátko, hračky, knihy, vaničku...
+          -->
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LOCATION
+    ========================== -->
+
+    <section id="lokalita">
+
+      <div class="container">
+
+        <div class="section-header centered">
+
+          <p class="eyebrow">Lokalita</p>
+
+          <h2>
+            V Harrachově.<br>
+            A přitom skoro v lese.
+          </h2>
+
+          <p class="section-intro">
+            Harradise leží v klidné části Harrachova směrem
+            k Mumlavskému vodopádu.
+          </p>
+
+        </div>
+
+
+        <div class="location-grid">
+
+          <div class="distance-card">
+            <span class="distance-big">200 m</span>
+            <span class="distance-label">
+              běžecké stopy
+            </span>
+          </div>
+
+
+          <div class="distance-card">
+            <span class="distance-big">300 m</span>
+            <span class="distance-label">
+              zastávka skibusu
+            </span>
+          </div>
+
+
+          <div class="distance-card">
+            <span class="distance-big">pěšky</span>
+            <span class="distance-label">
+              k Mumlavě
+            </span>
+          </div>
+
+
+          <div class="distance-card">
+            <span class="distance-big">blízko</span>
+            <span class="distance-label">
+              centra Harrachova
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="buttons" style="margin-top:32px;">
+
+          <a class="button button-secondary"
+             href="https://mapy.cz/zakladni?q=Harrachov%20650%2C%20512%2046%20Harrachov"
+             target="_blank"
+             rel="noopener">
+            Otevřít polohu v Mapy.cz
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SEASONS
+    ========================== -->
+
+    <section class="section-soft">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <p class="eyebrow">Po celý rok</p>
+
+          <h2>
+            Jednou přijedete v zimě.<br>
+            Příště třeba v létě.
+          </h2>
+
+        </div>
+
+
+        <div class="season-grid">
+
+
+          <div class="season-card">
+
+            <!-- ZATÍM NÁHRADNÍ FOTKA -->
+            <img
+              src="images/20250415_161024~2.jpg"
+              alt="Zima v Harrachově">
+
+            <div class="season-content">
+
+              <h3>Zima</h3>
+
+              <p>
+                Běžky, skialpy, sjezdovky, zasněžená Mumlava
+                a zahrada připravená na sněhuláky.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="season-card">
+
+            <!-- ZATÍM NÁHRADNÍ FOTKA -->
+            <img
+              src="images/IMG_20210527_154538~2.jpg"
+              alt="Léto v Harrachově">
+
+            <div class="season-content">
+
+              <h3>Léto</h3>
+
+              <p>
+                Pěší výlety, kola, Mumlavský vodopád,
+                lesy a dlouhé večery na zahradě.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         REVIEWS
+    ========================== -->
+
+    <section id="recenze">
+
+      <div class="container">
+
+        <div class="section-header centered">
+
+          <p class="eyebrow">Hodnocení hostů</p>
+
+          <h2>
+            9,7 z 10 na Booking.com
+          </h2>
+
+          <p class="section-intro">
+            Nejlépe za nás stejně mluví hosté, kteří už u nás bydleli.
+          </p>
+
+        </div>
+
+
+        <div class="reviews-grid">
+
+          <!--
+            TYTO TEXTY JSOU ZÁMĚRNĚ ZATÍM PLACEHOLDERY.
+            SEM PAK VLOŽÍME 3 SKUTEČNÉ RECENZE Z BOOKINGU.
+          -->
+
+          <article class="review">
+
+            <div class="review-stars">
+              ★★★★★
+            </div>
+
+            <p>
+              „Sem vložíme krátkou skutečnou recenzi hosta,
+              ideálně o poloze, pohodlí nebo vybavení apartmánu.“
+            </p>
+
+            <div class="review-name">
+              Host Harradise · Booking.com
+            </div>
+
+          </article>
+
+
+          <article class="review">
+
+            <div class="review-stars">
+              ★★★★★
+            </div>
+
+            <p>
+              „Druhá recenze může vyzdvihnout klid,
+              čistotu, vybavení nebo pobyt s dětmi.“
+            </p>
+
+            <div class="review-name">
+              Host Harradise · Booking.com
+            </div>
+
+          </article>
+
+
+          <article class="review">
+
+            <div class="review-stars">
+              ★★★★★
+            </div>
+
+            <p>
+              „Třetí vybereme tak, aby se neopakovala
+              a ukázala ještě jinou silnou stránku ubytování.“
+            </p>
+
+            <div class="review-name">
+              Host Harradise · Booking.com
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FINAL CTA
+    ========================== -->
+
+    <section class="section-green">
+
+      <div class="container final-cta">
+
+        <p class="eyebrow" style="color:rgba(255,255,255,.72);">
+          Už jen vybrat termín
+        </p>
+
+        <h2>
+          Kdy se uvidíme v Harrachově?
+        </h2>
+
+        <p>
+          Dostupnost a cenu pobytu můžete zkontrolovat na Booking.com.
+          Pokud se chcete na cokoli zeptat nebo rezervaci řešit napřímo,
+          jednoduše nám napište.
+        </p>
+
+
+        <div class="buttons">
+
+          <a class="button button-primary"
+             href="https://www.booking.com/Share-Pz2DesE"
+             target="_blank"
+             rel="noopener">
+            Zkontrolovat volný termín
+          </a>
+
+          <a class="button button-secondary"
+             href="mailto:hajek.stiburkova@gmail.com">
+            Napsat nám
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         INSTAGRAM
+    ========================== -->
+
+    <div class="instagram">
+
+      <div class="container">
+
+        <a class="insta-link"
+           href="https://www.instagram.com/harradise__?igsh=YjZlN2Exb2hsOXpp"
+           target="_blank"
+           rel="noopener">
+
+          ◎
+          <span>
+            Sledujte Harradise na Instagramu
+          </span>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
   </main>
 
-<footer style="text-align:center; margin-top:50px; padding:20px 0; font-size:14px; color:#6b7280;">
 
-  <p style="margin:6px 0; font-weight:600;">Kontakt</p>
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
-  <!-- Adresa -->
-  <p style="margin:6px 0;">
-    📍 Harrachov 650, 512 46 Harrachov
-    <br>
-    Otevřít v 
-<a href="https://mapy.cz/zakladni?q=Harrachov%20650%2C%20512%2046%20Harrachov" 
-   target="_blank" 
-   rel="noopener" 
-   style="color:#4b85d9; text-decoration:none;">
-   Mapy.cz
-</a>
-  </p>
+  <footer>
 
-  <!-- Telefon -->
-  <p style="margin:6px 0;">
-📞 <a href="tel:+420604192879" style="color:#6b7280; text-decoration:none;">
-      +420 604 192 879
-    </a>
-  </p>
+    <div class="container">
 
-  <!-- Email -->
-  <p style="margin:6px 0;">
-    Nedovolali jste se?
-    <a href="mailto:hajek.stiburkova@gmail.com" style="color:#4b85d9; text-decoration:none;">
-      Napište nám,
-    </a>
-    odpovídáme rychle.
-  </p>
+      <div class="footer-grid">
 
-</footer>
+
+        <div>
+
+          <img
+            src="logo.png"
+            alt="Harradise"
+            class="footer-logo">
+
+          <p>
+            Klidný apartmán pod Mumlavským vodopádem
+            v Harrachově.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>Kontakt</h3>
+
+          <p>
+            <a href="tel:+420604192879">
+              +420 604 192 879
+            </a>
+          </p>
+
+          <p>
+            <a href="mailto:hajek.stiburkova@gmail.com">
+              hajek.stiburkova@gmail.com
+            </a>
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>Kde nás najdete</h3>
+
+          <p>
+            Harrachov 650<br>
+            512 46 Harrachov
+          </p>
+
+          <p>
+            <a
+              href="https://mapy.cz/zakladni?q=Harrachov%20650%2C%20512%2046%20Harrachov"
+              target="_blank"
+              rel="noopener">
+              Zobrazit v Mapy.cz →
+            </a>
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+        © <span id="year"></span> Harradise Harrachov
+      </div>
+
+    </div>
+
+  </footer>
+
 
   <script>
-    // Rok v patičce
-    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
   </script>
+
+
 </body>
 </html>
+```
