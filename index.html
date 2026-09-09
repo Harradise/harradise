@@ -1,6 +1,6 @@
-```html
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,30 +16,36 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.harradise.cz/">
 
+  <!-- Písmo ladící s geometrickým charakterem loga -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
   <style>
 
+    /* ==========================================================
+       ZÁKLAD
+    ========================================================== */
+
     :root {
-      --bg: #ffffff;
-      --bg-soft: #f6f5f2;
-      --bg-warm: #f3f0eb;
+      --black: #111111;
+      --text: #202020;
+      --muted: #6f6f6b;
 
-      --text: #252525;
-      --muted: #6f706d;
+      --white: #ffffff;
+      --offwhite: #f7f7f4;
+      --warm: #f1f0eb;
 
-      --brand: #b3261e;
-      --brand-dark: #921c17;
-      --brand-soft: #f8eae8;
+      --line: #deded8;
+      --line-dark: #c9c9c2;
 
-      --green: #3d5144;
-      --green-soft: #edf1ed;
+      --max-width: 1180px;
 
-      --line: #e5e3df;
+      --radius-small: 3px;
+      --radius-photo: 5px;
 
-      --radius-small: 14px;
-      --radius: 22px;
-      --radius-large: 30px;
-
-      --shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+      --transition: 180ms ease;
     }
 
     * {
@@ -52,220 +58,91 @@
 
     body {
       margin: 0;
-      background: var(--bg);
+      background: var(--white);
       color: var(--text);
-      font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
-      line-height: 1.6;
+      font-family: "Montserrat", Arial, sans-serif;
+      line-height: 1.65;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
     }
 
     img {
       display: block;
+      width: 100%;
       max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
     }
 
     a {
       color: inherit;
     }
 
-    button {
-      font-family: inherit;
-    }
-
     .container {
-      width: min(1120px, calc(100% - 40px));
+      width: min(var(--max-width), calc(100% - 48px));
       margin: 0 auto;
     }
 
 
-    /* =========================
-       HEADER
-    ========================= */
+    /* ==========================================================
+       TYPOGRAFIE
+    ========================================================== */
 
-    .topbar {
-      position: relative;
-      z-index: 10;
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .topbar-inner {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo {
-      width: 88px;
-      height: auto;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      font-size: 14px;
-    }
-
-    .nav a {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav a:hover {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    .nav-book {
-      padding: 9px 15px;
-      border: 1px solid var(--brand);
-      border-radius: 999px;
-      color: var(--brand) !important;
-      font-weight: 700;
-    }
-
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      padding: 28px 0 58px;
-    }
-
-    .hero-photo {
-      width: 100%;
-      height: min(64vw, 610px);
-      min-height: 390px;
-      object-fit: cover;
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-content {
-      width: min(850px, 100%);
-      margin: 38px auto 0;
-      text-align: center;
-    }
-
-    .eyebrow {
-      margin: 0 0 10px;
-      color: var(--green);
-      font-size: 14px;
-      font-weight: 750;
-      text-transform: uppercase;
-      letter-spacing: .09em;
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(36px, 6vw, 65px);
-      line-height: 1.05;
+      margin-bottom: 0;
+      font-size: clamp(38px, 5.2vw, 70px);
+      line-height: 1.08;
+      font-weight: 500;
       letter-spacing: -0.035em;
-      font-weight: 780;
     }
 
-    .hero-lead {
-      max-width: 700px;
-      margin: 22px auto 0;
+    h2 {
+      margin-bottom: 20px;
+      font-size: clamp(31px, 4vw, 50px);
+      line-height: 1.14;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    .eyebrow {
+      margin-bottom: 16px;
+      font-size: 11px;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-weight: 600;
       color: var(--muted);
-      font-size: clamp(18px, 2.2vw, 22px);
     }
 
-    .benefit-pills {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin: 28px 0;
-    }
-
-    .benefit-pill {
-      padding: 8px 13px;
-      border-radius: 999px;
-      background: var(--bg-soft);
-      font-size: 14px;
-      font-weight: 650;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 11px;
-      margin-top: 25px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 12px 22px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 750;
-      transition: .15s ease;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .button-primary {
-      background: var(--brand);
-      color: white;
-      box-shadow: 0 7px 20px rgba(179,38,30,.22);
-    }
-
-    .button-primary:hover {
-      background: var(--brand-dark);
-      transform: translateY(-1px);
-    }
-
-    .button-secondary {
-      border: 1px solid #ccc8c1;
-      background: white;
-      color: var(--text);
-    }
-
-    .button-secondary:hover {
-      background: var(--bg-soft);
-    }
-
-
-    /* =========================
-       SECTIONS
-    ========================= */
-
-    section {
-      padding: 72px 0;
-    }
-
-    .section-soft {
-      background: var(--bg-soft);
-    }
-
-    .section-warm {
-      background: var(--bg-warm);
-    }
-
-    .section-green {
-      background: var(--green);
-      color: white;
+    .section-intro {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
     }
 
     .section-header {
-      max-width: 720px;
-      margin-bottom: 38px;
+      max-width: 770px;
+      margin-bottom: 48px;
     }
 
     .section-header.centered {
@@ -274,98 +151,294 @@
       text-align: center;
     }
 
-    h2 {
-      margin: 0 0 15px;
-      font-size: clamp(30px, 4.5vw, 46px);
-      line-height: 1.12;
-      letter-spacing: -0.03em;
+    .section-header.centered .section-intro {
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    h3 {
-      margin: 0 0 9px;
-      font-size: 20px;
-      line-height: 1.25;
+
+    /* ==========================================================
+       HEADER
+    ========================================================== */
+
+    .topbar {
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      z-index: 20;
     }
 
-    p {
-      margin-top: 0;
+    .topbar-inner {
+      min-height: 102px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
     }
 
-    .section-intro {
-      margin: 0;
+    .brand {
+      display: block;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .logo {
+      width: 145px;
+      height: auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav a {
+      position: relative;
+      color: var(--black);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav a:not(.nav-book)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -6px;
+      height: 1px;
+      background: var(--black);
+      transition: right var(--transition);
+    }
+
+    .nav a:not(.nav-book):hover::after {
+      right: 0;
+    }
+
+    .nav-book {
+      padding: 12px 18px;
+      border: 1px solid var(--black);
+      transition:
+        background var(--transition),
+        color var(--transition);
+    }
+
+    .nav-book:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+
+    /* ==========================================================
+       TLAČÍTKA
+    ========================================================== */
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 52px;
+      padding: 13px 22px;
+
+      border: 1px solid var(--black);
+      border-radius: var(--radius-small);
+
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+
+      text-decoration: none;
+      cursor: pointer;
+
+      transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+    }
+
+    .button-primary {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+
+    .button-secondary {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .button-secondary:hover {
+      background: var(--offwhite);
+    }
+
+
+    /* ==========================================================
+       HERO
+    ========================================================== */
+
+    .hero {
+      padding: 34px 0 88px;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-photo {
+      height: min(64vw, 650px);
+      min-height: 440px;
+      object-fit: cover;
+      border-radius: var(--radius-photo);
+    }
+
+    .hero-content {
+      max-width: 930px;
+      margin: 58px auto 0;
+      text-align: center;
+    }
+
+    .hero-lead {
+      max-width: 750px;
+      margin: 26px auto 0;
       color: var(--muted);
-      font-size: 18px;
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.75;
+    }
+
+    .benefit-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      margin: 34px auto 0;
+    }
+
+    .benefit-pill {
+      position: relative;
+      padding: 7px 17px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: #454545;
+    }
+
+    .benefit-pill:not(:last-child)::after {
+      content: "·";
+      position: absolute;
+      right: -2px;
+      color: #999;
+    }
+
+    .hero .buttons {
+      justify-content: center;
+      margin-top: 36px;
     }
 
 
-    /* =========================
-       RATING
-    ========================= */
+    /* ==========================================================
+       HODNOCENÍ
+    ========================================================== */
 
     .rating-wrap {
-      padding-top: 0;
+      padding: 0 0 88px;
     }
 
     .rating-card {
-      padding: 30px;
-      background: var(--green);
-      color: white;
-      border-radius: var(--radius);
       display: grid;
       grid-template-columns: auto 1fr auto;
       align-items: center;
-      gap: 26px;
+      gap: 30px;
+
+      padding: 30px 36px;
+
+      border-top: 1px solid var(--black);
+      border-bottom: 1px solid var(--black);
     }
 
     .rating-score {
-      font-size: 48px;
+      font-size: clamp(42px, 6vw, 62px);
       line-height: 1;
-      font-weight: 800;
-      letter-spacing: -.04em;
+      font-weight: 500;
+      letter-spacing: -.05em;
     }
 
     .rating-copy strong {
       display: block;
-      margin-bottom: 3px;
-      font-size: 18px;
+      margin-bottom: 5px;
+      font-size: 15px;
+      font-weight: 600;
     }
 
     .rating-copy span {
-      opacity: .8;
-      font-size: 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
     }
 
     .stars {
-      font-size: 20px;
-      letter-spacing: 3px;
-      white-space: nowrap;
+      font-size: 15px;
+      letter-spacing: 5px;
     }
 
 
-    /* =========================
-       GALLERY
-    ========================= */
+    /* ==========================================================
+       OBECNÉ SEKCE
+    ========================================================== */
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-soft {
+      background: var(--offwhite);
+    }
+
+    .section-warm {
+      background: var(--warm);
+    }
+
+
+    /* ==========================================================
+       GALERIE
+    ========================================================== */
 
     .gallery-main {
       display: grid;
-      grid-template-columns: 1.55fr 1fr;
-      gap: 10px;
-      height: 560px;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 8px;
+      height: 610px;
     }
 
     .gallery-large,
     .gallery-small {
       overflow: hidden;
-      border-radius: var(--radius-small);
-      background: #ddd;
+      background: #e6e6e2;
+      border-radius: var(--radius-photo);
     }
 
     .gallery-large img,
     .gallery-small img {
-      width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform .3s ease;
+      transition: transform 400ms ease;
     }
 
     .gallery-large:hover img,
@@ -376,7 +449,7 @@
     .gallery-side {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 8px;
     }
 
     .gallery-small {
@@ -386,54 +459,75 @@
     .gallery-more {
       position: absolute;
       inset: 0;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0,0,0,.42);
+
+      padding: 20px;
+
+      background: rgba(0,0,0,.48);
       color: white;
-      font-size: 18px;
-      font-weight: 750;
+
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-align: center;
     }
 
 
-    /* =========================
-       BENEFITS
-    ========================= */
+    /* ==========================================================
+       PROČ HARRADISE
+    ========================================================== */
 
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      border-top: 1px solid var(--line-dark);
+      border-left: 1px solid var(--line-dark);
     }
 
     .benefit-card {
-      min-height: 205px;
-      padding: 25px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: white;
+      min-height: 230px;
+      padding: 34px 30px;
+
+      background: transparent;
+      border-right: 1px solid var(--line-dark);
+      border-bottom: 1px solid var(--line-dark);
     }
 
-    .benefit-icon {
-      margin-bottom: 20px;
-      font-size: 30px;
+    .benefit-number {
+      display: block;
+      margin-bottom: 36px;
+
+      color: #999;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .15em;
     }
 
     .benefit-card p {
-      margin: 0;
+      margin-bottom: 0;
       color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
     }
 
 
-    /* =========================
-       TWO COLUMN CONTENT
-    ========================= */
+    /* ==========================================================
+       FOTO + TEXT
+    ========================================================== */
 
     .split {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
+      grid-template-columns: 1.08fr .92fr;
       align-items: center;
+      gap: clamp(50px, 7vw, 100px);
+    }
+
+    .split.reverse {
+      grid-template-columns: .92fr 1.08fr;
     }
 
     .split.reverse .split-photo {
@@ -441,10 +535,9 @@
     }
 
     .split-photo img {
-      width: 100%;
-      height: 500px;
+      height: 560px;
       object-fit: cover;
-      border-radius: var(--radius-large);
+      border-radius: var(--radius-photo);
     }
 
     .split-copy {
@@ -452,83 +545,107 @@
     }
 
     .clean-list {
-      margin: 24px 0 0;
+      margin: 34px 0 0;
       padding: 0;
       list-style: none;
+      border-top: 1px solid var(--line);
     }
 
     .clean-list li {
       position: relative;
-      padding: 9px 0 9px 28px;
-      border-bottom: 1px solid rgba(100,100,100,.12);
+      padding: 13px 0 13px 22px;
+
+      border-bottom: 1px solid var(--line);
+
+      font-size: 14px;
     }
 
     .clean-list li::before {
-      content: "✓";
+      content: "—";
       position: absolute;
       left: 0;
-      color: var(--green);
-      font-weight: 800;
+      top: 13px;
+      color: var(--black);
     }
 
 
-    /* =========================
-       LOCATION
-    ========================= */
+    /* ==========================================================
+       LOKALITA
+    ========================================================== */
 
     .location-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 35px;
+      margin-top: 50px;
+      border-top: 1px solid var(--line-dark);
+      border-left: 1px solid var(--line-dark);
     }
 
     .distance-card {
-      padding: 25px 18px;
+      min-height: 165px;
+      padding: 30px 22px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
       text-align: center;
-      background: white;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
+
+      border-right: 1px solid var(--line-dark);
+      border-bottom: 1px solid var(--line-dark);
     }
 
     .distance-big {
       display: block;
-      margin-bottom: 7px;
-      font-size: 31px;
+      margin-bottom: 14px;
+
+      font-size: clamp(27px, 3vw, 39px);
       line-height: 1;
-      font-weight: 800;
+      font-weight: 500;
+      letter-spacing: -.035em;
     }
 
     .distance-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .15em;
       color: var(--muted);
-      font-size: 14px;
+    }
+
+    .location-buttons {
+      justify-content: center;
+      margin-top: 38px;
     }
 
 
-    /* =========================
-       SEASONS
-    ========================= */
+    /* ==========================================================
+       ROČNÍ OBDOBÍ
+    ========================================================== */
 
     .season-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 12px;
     }
 
     .season-card {
-      min-height: 480px;
-      padding: 34px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
       position: relative;
+      min-height: 550px;
       overflow: hidden;
-      border-radius: var(--radius-large);
+
+      display: flex;
+      align-items: flex-end;
+
+      padding: 40px;
+
       color: white;
-      background: #555;
+      background: #333;
+
+      border-radius: var(--radius-photo);
     }
 
-    .season-card::before {
+    .season-card::after {
       content: "";
       position: absolute;
       inset: 0;
@@ -536,14 +653,14 @@
         linear-gradient(
           to top,
           rgba(0,0,0,.72) 0%,
-          rgba(0,0,0,.15) 65%
+          rgba(0,0,0,.08) 72%
         );
-      z-index: 1;
     }
 
     .season-card img {
       position: absolute;
       inset: 0;
+
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -556,239 +673,313 @@
     }
 
     .season-content h3 {
-      font-size: 31px;
+      margin-bottom: 11px;
+      color: white;
+      font-size: 30px;
+      font-weight: 500;
     }
 
     .season-content p {
-      margin: 0;
-      opacity: .92;
+      margin-bottom: 0;
+      font-size: 14px;
+      line-height: 1.75;
+      color: rgba(255,255,255,.9);
     }
 
 
-    /* =========================
-       REVIEWS
-    ========================= */
+    /* ==========================================================
+       RECENZE
+    ========================================================== */
 
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
     }
 
     .review {
-      padding: 27px;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      min-height: 330px;
+      padding: 34px;
+
+      display: flex;
+      flex-direction: column;
+
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .review-stars {
-      margin-bottom: 13px;
-      letter-spacing: 2px;
+      margin-bottom: 35px;
+      font-size: 13px;
+      letter-spacing: 4px;
     }
 
     .review p {
-      margin-bottom: 16px;
-      font-size: 16px;
+      margin-bottom: 28px;
+      font-size: 15px;
+      line-height: 1.85;
     }
 
     .review-name {
+      margin-top: auto;
+
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
       color: var(--muted);
-      font-size: 14px;
     }
 
 
-    /* =========================
-       CTA
-    ========================= */
+    /* ==========================================================
+       ZÁVĚREČNÉ CTA
+    ========================================================== */
+
+    .section-dark {
+      background: var(--black);
+      color: var(--white);
+    }
 
     .final-cta {
+      max-width: 800px;
+      margin: 0 auto;
       text-align: center;
     }
 
-    .final-cta h2 {
+    .section-dark .eyebrow {
+      color: #aaa;
+    }
+
+    .section-dark h2 {
       color: white;
     }
 
-    .final-cta p {
-      max-width: 620px;
-      margin: 0 auto 25px;
-      opacity: .85;
-      font-size: 18px;
+    .final-cta > p:not(.eyebrow) {
+      max-width: 660px;
+      margin: 0 auto;
+
+      color: #cfcfcf;
+      font-size: 16px;
+      line-height: 1.8;
     }
 
-    .section-green .button-secondary {
-      color: white;
-      border-color: rgba(255,255,255,.4);
+    .final-cta .buttons {
+      justify-content: center;
+      margin-top: 36px;
+    }
+
+    .section-dark .button-primary {
+      background: white;
+      border-color: white;
+      color: black;
+    }
+
+    .section-dark .button-primary:hover {
+      background: #e8e8e8;
+    }
+
+    .section-dark .button-secondary {
       background: transparent;
+      border-color: #777;
+      color: white;
     }
 
-    .section-green .button-secondary:hover {
+    .section-dark .button-secondary:hover {
       background: rgba(255,255,255,.08);
     }
 
 
-    /* =========================
+    /* ==========================================================
        INSTAGRAM
-    ========================= */
+    ========================================================== */
 
     .instagram {
-      padding: 38px 0;
-      text-align: center;
+      padding: 42px 0;
       border-bottom: 1px solid var(--line);
+      text-align: center;
     }
 
     .insta-link {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      padding: 10px 17px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
+      gap: 10px;
+
+      color: var(--black);
+
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
       text-decoration: none;
-      font-weight: 650;
-      font-size: 14px;
     }
 
-    .insta-link:hover {
-      background: var(--bg-soft);
+    .insta-symbol {
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .insta-link span:last-child {
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition);
+    }
+
+    .insta-link:hover span:last-child {
+      border-color: var(--black);
     }
 
 
-    /* =========================
+    /* ==========================================================
        FOOTER
-    ========================= */
+    ========================================================== */
 
     footer {
-      padding: 55px 0 35px;
-      color: var(--muted);
+      padding: 70px 0 34px;
+      background: white;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 35px;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      gap: 70px;
+      padding-bottom: 55px;
     }
 
     .footer-logo {
-      width: 95px;
-      margin-bottom: 17px;
+      width: 150px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .footer-description {
+      max-width: 300px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
     }
 
     footer h3 {
-      color: var(--text);
-      font-size: 15px;
+      margin-bottom: 21px;
+
+      font-size: 10px;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: .05em;
+      letter-spacing: .16em;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
     }
 
     footer a {
       text-decoration: none;
-      color: var(--muted);
     }
 
     footer a:hover {
-      color: var(--text);
       text-decoration: underline;
-      text-underline-offset: 3px;
+      text-underline-offset: 4px;
     }
 
     .footer-contact-buttons {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 20px;
     }
 
     .contact-link {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 7px;
-      padding: 9px 15px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: white;
-      color: var(--text);
-      font: inherit;
-      font-size: 14px;
-      font-weight: 650;
-      text-decoration: none;
+
+      padding: 9px 0;
+
+      border: 0;
+      border-bottom: 1px solid var(--black);
+
+      background: transparent;
+      color: var(--black);
+
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+
       cursor: pointer;
-      transition: .15s ease;
+      text-decoration: none;
     }
 
     .contact-link:hover {
-      background: var(--bg-soft);
-      text-decoration: none;
+      opacity: .6;
     }
 
     .copyright {
       padding-top: 25px;
+
       border-top: 1px solid var(--line);
+
+      color: #999;
+
+      font-size: 10px;
       text-align: center;
-      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
     }
 
 
-    /* =========================
-       MOBILE
-    ========================= */
+    /* ==========================================================
+       TABLET
+    ========================================================== */
 
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
+
+      .container {
+        width: min(var(--max-width), calc(100% - 34px));
+      }
+
+      .topbar-inner {
+        min-height: 88px;
+      }
+
+      .logo {
+        width: 125px;
+      }
+
+      .nav {
+        gap: 18px;
+      }
 
       .nav a:not(.nav-book) {
         display: none;
       }
 
-      .topbar-inner {
-        min-height: 65px;
-      }
-
-      .logo {
-        width: 74px;
-      }
-
-      .hero {
-        padding-top: 18px;
-      }
-
       .hero-photo {
-        min-height: 370px;
-        height: 67vh;
-        max-height: 580px;
-      }
-
-      .rating-card {
-        grid-template-columns: auto 1fr;
-      }
-
-      .stars {
-        display: none;
+        min-height: 420px;
       }
 
       .gallery-main {
-        height: auto;
         grid-template-columns: 1fr;
+        height: auto;
       }
 
       .gallery-large {
-        height: 390px;
+        height: 500px;
       }
 
       .gallery-side {
-        height: 330px;
+        height: 390px;
       }
 
       .benefits-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .split,
       .split.reverse {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 42px;
       }
 
       .split.reverse .split-photo {
@@ -796,15 +987,23 @@
       }
 
       .split-photo img {
-        height: 390px;
+        height: 520px;
+      }
+
+      .split-copy {
+        max-width: 700px;
       }
 
       .location-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .reviews-grid {
         grid-template-columns: 1fr;
+      }
+
+      .review {
+        min-height: 0;
       }
 
       .footer-grid {
@@ -814,24 +1013,101 @@
     }
 
 
-    @media (max-width: 580px) {
+    /* ==========================================================
+       MOBIL
+    ========================================================== */
+
+    @media (max-width: 600px) {
 
       .container {
-        width: min(100% - 28px, 1120px);
+        width: calc(100% - 28px);
       }
 
       section {
-        padding: 55px 0;
+        padding: 68px 0;
       }
 
-      .hero-content {
-        margin-top: 28px;
+      .topbar-inner {
+        min-height: 80px;
+      }
+
+      .logo {
+        width: 105px;
+      }
+
+      .nav-book {
+        padding: 10px 13px;
+        font-size: 10px !important;
+      }
+
+      .hero {
+        padding: 18px 0 68px;
       }
 
       .hero-photo {
-        min-height: 330px;
-        height: 56vh;
-        border-radius: 20px;
+        height: 57vh;
+        min-height: 350px;
+        max-height: 520px;
+      }
+
+      .hero-content {
+        margin-top: 40px;
+      }
+
+      h1 {
+        font-size: clamp(35px, 10vw, 47px);
+      }
+
+      .hero-lead {
+        font-size: 16px;
+      }
+
+      .benefit-pills {
+        display: block;
+        margin-top: 28px;
+      }
+
+      .benefit-pill {
+        display: block;
+        padding: 5px 0;
+      }
+
+      .benefit-pill:not(:last-child)::after {
+        display: none;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .rating-wrap {
+        padding-bottom: 68px;
+      }
+
+      .rating-card {
+        grid-template-columns: auto 1fr;
+        padding: 25px 5px;
+        gap: 20px;
+      }
+
+      .stars {
+        display: none;
+      }
+
+      .rating-score {
+        font-size: 44px;
+      }
+
+      .gallery-large {
+        height: 330px;
+      }
+
+      .gallery-side {
+        height: 300px;
       }
 
       .benefits-grid {
@@ -842,16 +1118,17 @@
         min-height: 0;
       }
 
-      .gallery-large {
-        height: 320px;
-      }
-
-      .gallery-side {
-        height: 270px;
+      .split-photo img {
+        height: 390px;
       }
 
       .location-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .distance-card {
+        min-height: 140px;
+        padding: 22px 10px;
       }
 
       .season-grid {
@@ -859,16 +1136,17 @@
       }
 
       .season-card {
-        min-height: 430px;
+        min-height: 470px;
+        padding: 28px;
       }
 
       .footer-grid {
         grid-template-columns: 1fr;
+        gap: 42px;
       }
 
-      .footer-contact-buttons {
-        flex-direction: column;
-        align-items: flex-start;
+      .footer-logo {
+        width: 140px;
       }
 
     }
@@ -880,20 +1158,28 @@
 <body>
 
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- ==========================================================
+       HLAVIČKA
+  =========================================================== -->
 
   <header class="topbar">
+
     <div class="container topbar-inner">
 
-      <a href="#top" aria-label="Harradise – domů">
-        <img src="logo.png"
-             alt="Harradise Harrachov"
-             class="logo">
+      <a href="#top"
+         class="brand"
+         aria-label="Harradise – domů">
+
+        <img
+          src="logo.png"
+          alt="Harradise Apartmán Krkonoše"
+          class="logo">
+
       </a>
 
+
       <nav class="nav">
+
         <a href="#apartman">Apartmán</a>
         <a href="#galerie">Fotky</a>
         <a href="#lokalita">Lokalita</a>
@@ -903,29 +1189,39 @@
            href="https://www.booking.com/Share-Pz2DesE"
            target="_blank"
            rel="noopener">
+
           Rezervovat
+
         </a>
+
       </nav>
 
     </div>
+
   </header>
+
 
 
   <main id="top">
 
 
-    <!-- =========================
+    <!-- ==========================================================
          HERO
-    ========================== -->
+    =========================================================== -->
 
     <section class="hero">
 
       <div class="container">
 
-        <img
-          src="images/IMG_20210527_154538~2.jpg"
-          alt="Apartmán Harradise v Harrachově"
-          class="hero-photo">
+        <div class="hero-photo-wrap">
+
+          <img
+            src="images/IMG_20210527_154538~2.jpg"
+            alt="Apartmán Harradise v Harrachově"
+            class="hero-photo">
+
+        </div>
+
 
         <div class="hero-content">
 
@@ -943,13 +1239,31 @@
             pro rodiny, páry i všechny, kdo chtějí mít hory hned za dveřmi.
           </p>
 
+
           <div class="benefit-pills">
-            <span class="benefit-pill">200 m od běžeckých stop</span>
-            <span class="benefit-pill">zahrada</span>
-            <span class="benefit-pill">vlastní parkování</span>
-            <span class="benefit-pill">klidný nebytový dům</span>
-            <span class="benefit-pill">vybavení pro děti</span>
+
+            <span class="benefit-pill">
+              200 m od běžeckých stop
+            </span>
+
+            <span class="benefit-pill">
+              zahrada
+            </span>
+
+            <span class="benefit-pill">
+              vlastní parkování
+            </span>
+
+            <span class="benefit-pill">
+              klidný nebytový dům
+            </span>
+
+            <span class="benefit-pill">
+              vybavení pro děti
+            </span>
+
           </div>
+
 
           <div class="buttons">
 
@@ -957,14 +1271,19 @@
                href="https://www.booking.com/Share-Pz2DesE"
                target="_blank"
                rel="noopener">
+
               Zkontrolovat volný termín
+
             </a>
+
 
             <button
               type="button"
               class="button button-secondary"
               onclick="writeToUs()">
+
               Napsat nám napřímo
+
             </button>
 
           </div>
@@ -976,9 +1295,10 @@
     </section>
 
 
-    <!-- =========================
-         BOOKING RATING
-    ========================== -->
+
+    <!-- ==========================================================
+         BOOKING HODNOCENÍ
+    =========================================================== -->
 
     <section class="rating-wrap">
 
@@ -991,8 +1311,15 @@
           </div>
 
           <div class="rating-copy">
-            <strong>Výjimečné hodnocení hostů</strong>
-            <span>na Booking.com</span>
+
+            <strong>
+              Výjimečné hodnocení hostů
+            </strong>
+
+            <span>
+              na Booking.com
+            </span>
+
           </div>
 
           <div class="stars">
@@ -1006,17 +1333,21 @@
     </section>
 
 
-    <!-- =========================
-         GALLERY
-    ========================== -->
+
+    <!-- ==========================================================
+         GALERIE
+    =========================================================== -->
 
     <section id="galerie">
 
       <div class="container">
 
+
         <div class="section-header">
 
-          <p class="eyebrow">Harradise zblízka</p>
+          <p class="eyebrow">
+            Harradise zblízka
+          </p>
 
           <h2>
             Prohlédněte si apartmán
@@ -1030,34 +1361,49 @@
         </div>
 
 
+
         <div class="gallery-main">
 
+
           <div class="gallery-large">
+
             <img
               src="images/IMG_20210527_154538~2.jpg"
               alt="Obývací část apartmánu Harradise">
+
           </div>
+
 
 
           <div class="gallery-side">
 
+
             <div class="gallery-small">
+
               <img
                 src="images/20241123_101905(1).jpg"
                 alt="Spací část apartmánu">
+
             </div>
 
+
             <div class="gallery-small">
+
               <img
                 src="images/20250415_161024~2.jpg"
                 alt="Okolí Harradise">
+
             </div>
 
+
             <div class="gallery-small">
+
               <img
                 src="images/IMG_20210527_154538~2.jpg"
                 alt="Interiér Harradise">
+
             </div>
+
 
             <div class="gallery-small">
 
@@ -1071,6 +1417,7 @@
 
             </div>
 
+
           </div>
 
         </div>
@@ -1080,17 +1427,21 @@
     </section>
 
 
-    <!-- =========================
-         BENEFITS
-    ========================== -->
+
+    <!-- ==========================================================
+         PROČ HARRADISE
+    =========================================================== -->
 
     <section class="section-soft">
 
       <div class="container">
 
+
         <div class="section-header centered">
 
-          <p class="eyebrow">Proč Harradise</p>
+          <p class="eyebrow">
+            Proč Harradise
+          </p>
 
           <h2>
             Hory hned za dveřmi. Jsme poslední zástavba před cestou na hřebeny.<br>
@@ -1100,66 +1451,122 @@
         </div>
 
 
+
         <div class="benefits-grid">
 
+
           <div class="benefit-card">
-            <div class="benefit-icon">🌲</div>
-            <h3>Přímo u lesa</h3>
+
+            <span class="benefit-number">
+              01
+            </span>
+
+            <h3>
+              Přímo u lesa
+            </h3>
+
             <p>
               Na výlet podél Mumlavy můžete vyrazit rovnou od dveří.
               Velkolepá příroda všude kolem.
             </p>
+
           </div>
 
 
+
           <div class="benefit-card">
-            <div class="benefit-icon">🎿</div>
-            <h3>100 m od běžeckých stop</h3>
+
+            <span class="benefit-number">
+              02
+            </span>
+
+            <h3>
+              100 m od běžeckých stop
+            </h3>
+
             <p>
               Výborné místo pro běžkaře i skialpinisty.
               Skibus staví přibližně 300 metrů od domu.
             </p>
+
           </div>
 
 
+
           <div class="benefit-card">
-            <div class="benefit-icon">🏡</div>
-            <h3>Klidná část Harrachova</h3>
+
+            <span class="benefit-number">
+              03
+            </span>
+
+            <h3>
+              Klidná část Harrachova
+            </h3>
+
             <p>
               Bydlíte mimo největší ruch, ale centrum a služby
               máte stále pohodlně na dosah.
             </p>
+
           </div>
 
 
+
           <div class="benefit-card">
-            <div class="benefit-icon">👨‍👩‍👧</div>
-            <h3>Opravdu pro rodiny</h3>
+
+            <span class="benefit-number">
+              04
+            </span>
+
+            <h3>
+              Opravdu pro rodiny
+            </h3>
+
             <p>
               Mysleli jsme i na věci, které s dětmi jinak zabírají
               polovinu zavazadlového prostoru vašeho auta.
             </p>
+
           </div>
 
 
+
           <div class="benefit-card">
-            <div class="benefit-icon">🌿</div>
-            <h3>Velká zahrada</h3>
+
+            <span class="benefit-number">
+              05
+            </span>
+
+            <h3>
+              Velká zahrada
+            </h3>
+
             <p>
               V zimě na sněhuláky a řádění ve sněhu,
               v létě na odpočinek a večer u ohně.
             </p>
+
           </div>
 
 
+
           <div class="benefit-card">
-            <div class="benefit-icon">🚗</div>
-            <h3>Vlastní parkování</h3>
+
+            <span class="benefit-number">
+              06
+            </span>
+
+            <h3>
+              Vlastní parkování
+            </h3>
+
             <p>
               Auto můžete nechat u domu a řadu výletů
               i aktivit zvládnout bez něj.
             </p>
+
           </div>
+
 
         </div>
 
@@ -1168,13 +1575,15 @@
     </section>
 
 
-    <!-- =========================
-         APARTMENT
-    ========================== -->
+
+    <!-- ==========================================================
+         APARTMÁN
+    =========================================================== -->
 
     <section id="apartman">
 
       <div class="container split">
+
 
         <div class="split-photo">
 
@@ -1185,9 +1594,12 @@
         </div>
 
 
+
         <div class="split-copy">
 
-          <p class="eyebrow">Apartmán</p>
+          <p class="eyebrow">
+            Apartmán
+          </p>
 
           <h2>
             Ať se po horách máte kam rádi vracet
@@ -1198,26 +1610,51 @@
             ne jen přespávalo.
           </p>
 
+
           <ul class="clean-list">
-            <li>plně vybavená kuchyň s myčkou</li>
-            <li>pračka se sušičkou</li>
-            <li>pohodlné zázemí pro delší pobyt</li>
-            <li>vybavení pro děti</li>
-            <li>Wi-Fi</li>
-            <li>vlastní parkovací místo</li>
-            <li>velká zahrada za domem</li>
+
+            <li>
+              plně vybavená kuchyň s myčkou
+            </li>
+
+            <li>
+              pračka se sušičkou
+            </li>
+
+            <li>
+              pohodlné zázemí pro delší pobyt
+            </li>
+
+            <li>
+              vybavení pro děti
+            </li>
+
+            <li>
+              Wi-Fi
+            </li>
+
+            <li>
+              vlastní parkovací místo
+            </li>
+
+            <li>
+              velká zahrada za domem
+            </li>
+
           </ul>
 
         </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- =========================
-         FAMILY
-    ========================== -->
+
+    <!-- ==========================================================
+         S DĚTMI
+    =========================================================== -->
 
     <section class="section-warm">
 
@@ -1233,9 +1670,12 @@
         </div>
 
 
+
         <div class="split-copy">
 
-          <p class="eyebrow">S dětmi</p>
+          <p class="eyebrow">
+            S dětmi
+          </p>
 
           <h2>
             Ať nemusíte mít narvané auto po strop
@@ -1246,33 +1686,58 @@
             Proto se snažíme, aby část z nich mohla zůstat doma.
           </p>
 
+
           <ul class="clean-list">
-            <li>skládací dětská postýlka</li>
-            <li>dětská jídelní židlička</li>
-            <li>dětské nádobí a příbory</li>
-            <li>nočník, adaptér na WC, stupínky aj.</li>
-            <li>pračka a sušička přímo v apartmánu</li>
-            <li>zahrada za domem</li>
+
+            <li>
+              skládací dětská postýlka
+            </li>
+
+            <li>
+              dětská jídelní židlička
+            </li>
+
+            <li>
+              dětské nádobí a příbory
+            </li>
+
+            <li>
+              nočník, adaptér na WC, stupínky aj.
+            </li>
+
+            <li>
+              pračka a sušička přímo v apartmánu
+            </li>
+
+            <li>
+              zahrada za domem
+            </li>
+
           </ul>
 
         </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- =========================
-         LOCATION
-    ========================== -->
+
+    <!-- ==========================================================
+         LOKALITA
+    =========================================================== -->
 
     <section id="lokalita">
 
       <div class="container">
 
+
         <div class="section-header centered">
 
-          <p class="eyebrow">Lokalita</p>
+          <p class="eyebrow">
+            Lokalita
+          </p>
 
           <h2>
             V Harrachově.<br>
@@ -1287,69 +1752,104 @@
         </div>
 
 
+
         <div class="location-grid">
 
+
           <div class="distance-card">
-            <span class="distance-big">100 m</span>
+
+            <span class="distance-big">
+              100 m
+            </span>
+
             <span class="distance-label">
               běžecké stopy
             </span>
+
           </div>
 
 
+
           <div class="distance-card">
-            <span class="distance-big">300 m</span>
+
+            <span class="distance-big">
+              300 m
+            </span>
+
             <span class="distance-label">
               zastávka skibusu
             </span>
+
           </div>
 
 
+
           <div class="distance-card">
-            <span class="distance-big">pěšky</span>
+
+            <span class="distance-big">
+              pěšky
+            </span>
+
             <span class="distance-label">
               k Mumlavě
             </span>
+
           </div>
+
 
 
           <div class="distance-card">
-            <span class="distance-big">blízko</span>
+
+            <span class="distance-big">
+              blízko
+            </span>
+
             <span class="distance-label">
               centra Harrachova
             </span>
+
           </div>
+
 
         </div>
 
 
-        <div class="buttons" style="margin-top:32px;">
 
-          <a class="button button-secondary"
-             href="https://mapy.cz/zakladni?q=Harrachov%20650%2C%20512%2046%20Harrachov"
-             target="_blank"
-             rel="noopener">
+        <div class="buttons location-buttons">
+
+          <a
+            class="button button-secondary"
+            href="https://mapy.cz/zakladni?q=Harrachov%20650%2C%20512%2046%20Harrachov"
+            target="_blank"
+            rel="noopener">
+
             Otevřít polohu v Mapy.cz
+
           </a>
 
         </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- =========================
-         SEASONS
-    ========================== -->
+
+    <!-- ==========================================================
+         ROČNÍ OBDOBÍ
+    =========================================================== -->
 
     <section class="section-soft">
 
       <div class="container">
 
+
         <div class="section-header">
 
-          <p class="eyebrow">Po celý rok</p>
+          <p class="eyebrow">
+            Po celý rok
+          </p>
 
           <h2>
             Jednou přijedete v zimě.<br>
@@ -1357,6 +1857,7 @@
           </h2>
 
         </div>
+
 
 
         <div class="season-grid">
@@ -1370,7 +1871,9 @@
 
             <div class="season-content">
 
-              <h3>Zima</h3>
+              <h3>
+                Zima
+              </h3>
 
               <p>
                 Běžky, skialpy, sjezdovky, zasněžená Mumlava
@@ -1382,6 +1885,7 @@
           </div>
 
 
+
           <div class="season-card">
 
             <img
@@ -1390,7 +1894,9 @@
 
             <div class="season-content">
 
-              <h3>Léto</h3>
+              <h3>
+                Léto
+              </h3>
 
               <p>
                 Pěší výlety, kola, Mumlavský vodopád,
@@ -1409,17 +1915,21 @@
     </section>
 
 
-    <!-- =========================
-         REVIEWS
-    ========================== -->
+
+    <!-- ==========================================================
+         RECENZE
+    =========================================================== -->
 
     <section id="recenze">
 
       <div class="container">
 
+
         <div class="section-header centered">
 
-          <p class="eyebrow">Hodnocení hostů</p>
+          <p class="eyebrow">
+            Hodnocení hostů
+          </p>
 
           <h2>
             9,7 z 10 na Booking.com
@@ -1430,6 +1940,7 @@
           </p>
 
         </div>
+
 
 
         <div class="reviews-grid">
@@ -1452,6 +1963,7 @@
           </article>
 
 
+
           <article class="review">
 
             <div class="review-stars">
@@ -1467,6 +1979,7 @@
             </div>
 
           </article>
+
 
 
           <article class="review">
@@ -1485,6 +1998,7 @@
 
           </article>
 
+
         </div>
 
       </div>
@@ -1492,15 +2006,17 @@
     </section>
 
 
-    <!-- =========================
-         FINAL CTA
-    ========================== -->
 
-    <section class="section-green">
+    <!-- ==========================================================
+         ZÁVĚREČNÁ REZERVACE
+    =========================================================== -->
+
+    <section class="section-dark">
 
       <div class="container final-cta">
 
-        <p class="eyebrow" style="color:rgba(255,255,255,.72);">
+
+        <p class="eyebrow">
           Už jen vybrat termín
         </p>
 
@@ -1515,43 +2031,56 @@
         </p>
 
 
+
         <div class="buttons">
 
-          <a class="button button-primary"
-             href="https://www.booking.com/Share-Pz2DesE"
-             target="_blank"
-             rel="noopener">
+          <a
+            class="button button-primary"
+            href="https://www.booking.com/Share-Pz2DesE"
+            target="_blank"
+            rel="noopener">
+
             Zkontrolovat volný termín
+
           </a>
+
 
           <button
             type="button"
             class="button button-secondary"
             onclick="writeToUs()">
+
             Napsat nám
+
           </button>
 
         </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- =========================
+
+    <!-- ==========================================================
          INSTAGRAM
-    ========================== -->
+    =========================================================== -->
 
     <div class="instagram">
 
       <div class="container">
 
-        <a class="insta-link"
-           href="https://www.instagram.com/harradise__?igsh=YjZlN2Exb2hsOXpp"
-           target="_blank"
-           rel="noopener">
+        <a
+          class="insta-link"
+          href="https://www.instagram.com/harradise__?igsh=YjZlN2Exb2hsOXpp"
+          target="_blank"
+          rel="noopener">
 
-          ◎
+          <span class="insta-symbol">
+            ◎
+          </span>
+
           <span>
             Sledujte Harradise na Instagramu
           </span>
@@ -1566,13 +2095,15 @@
   </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+
+  <!-- ==========================================================
+       PATIČKA
+  =========================================================== -->
 
   <footer>
 
     <div class="container">
+
 
       <div class="footer-grid">
 
@@ -1581,10 +2112,10 @@
 
           <img
             src="logo.png"
-            alt="Harradise"
+            alt="Harradise Apartmán Krkonoše"
             class="footer-logo">
 
-          <p>
+          <p class="footer-description">
             Klidný apartmán pod Mumlavským vodopádem
             v Harrachově.
           </p>
@@ -1592,13 +2123,17 @@
         </div>
 
 
+
         <div>
 
-          <h3>Kontakt</h3>
+          <h3>
+            Kontakt
+          </h3>
 
           <p>
             Máte dotaz k pobytu nebo chcete rezervovat napřímo?
           </p>
+
 
           <div class="footer-contact-buttons">
 
@@ -1606,14 +2141,19 @@
               type="button"
               class="contact-link"
               onclick="writeToUs()">
-              ✉ Napsat nám
+
+              Napsat nám
+
             </button>
+
 
             <button
               type="button"
               class="contact-link"
               onclick="callUs()">
-              ☎ Zavolat nám
+
+              Zavolat nám
+
             </button>
 
           </div>
@@ -1621,9 +2161,12 @@
         </div>
 
 
+
         <div>
 
-          <h3>Kde nás najdete</h3>
+          <h3>
+            Kde nás najdete
+          </h3>
 
           <p>
             Harrachov 650<br>
@@ -1631,40 +2174,58 @@
           </p>
 
           <p>
+
             <a
               href="https://mapy.cz/zakladni?q=Harrachov%20650%2C%20512%2046%20Harrachov"
               target="_blank"
               rel="noopener">
+
               Zobrazit v Mapy.cz →
+
             </a>
+
           </p>
 
         </div>
 
+
       </div>
+
 
 
       <div class="copyright">
+
         © <span id="year"></span> Harradise Harrachov
+
       </div>
+
 
     </div>
 
   </footer>
 
 
+
+  <!-- ==========================================================
+       JAVASCRIPT
+  =========================================================== -->
+
   <script>
 
     /* Aktuální rok */
+
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
 
+
     /*
-      E-mail není uložen jako celá adresa v HTML.
-      Složí se až v prohlížeči po kliknutí.
+      E-mail není přímo napsaný v HTML.
+      Složí se až po kliknutí.
     */
+
     function writeToUs() {
+
       const namePart = "hajek.stiburkova";
       const domainPart = "gmail";
       const endingPart = "com";
@@ -1674,14 +2235,18 @@
 
       window.location.href =
         "mai" + "lto:" + address;
+
     }
 
 
+
     /*
-      Telefon se návštěvníkovi nikde nevypisuje.
-      Po kliknutí na tlačítko se otevře vytáčení.
+      Telefon není návštěvníkovi vypsaný.
+      Složí se až po kliknutí.
     */
+
     function callUs() {
+
       const country = "+420";
       const first = "604";
       const second = "192";
@@ -1692,11 +2257,12 @@
 
       window.location.href =
         "te" + "l:" + phone;
+
     }
 
   </script>
 
 
 </body>
+
 </html>
-```
